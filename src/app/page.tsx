@@ -37,9 +37,12 @@ function Navigation() {
             <a href="#pricing" className="text-gray-300 hover:text-white transition">Pricing</a>
             <a href="#results" className="text-gray-300 hover:text-white transition">Results</a>
             <a href="#faq" className="text-gray-300 hover:text-white transition">FAQ</a>
-            <button className="px-6 py-2 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition">
+            <a
+              href="https://app.goleadsyncs.com/"
+              className="px-6 py-2 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition"
+            >
               Login
-            </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -58,9 +61,12 @@ function Navigation() {
             <a href="#pricing" className="block py-2 text-gray-300">Pricing</a>
             <a href="#results" className="block py-2 text-gray-300">Results</a>
             <a href="#faq" className="block py-2 text-gray-300">FAQ</a>
-            <button className="w-full px-6 py-2 bg-gradient-primary rounded-lg font-semibold mt-2">
+            <a
+              href="https://app.goleadsyncs.com/"
+              className="block w-full px-6 py-2 bg-gradient-primary rounded-lg font-semibold mt-2 text-center"
+            >
               Login
-            </button>
+            </a>
           </div>
         </div>
       )}
