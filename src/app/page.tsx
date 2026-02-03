@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   CheckCircle2, 
@@ -16,9 +16,12 @@ import {
   X
 } from 'lucide-react';
 
+const SIGNUP_URL = 'https://app.goleadsyncs.com/signup';
+
 // Navigation Component
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <nav className="fixed top-0 w-full z-50 glass-effect">
@@ -32,22 +35,26 @@ function Navigation() {
           
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-300 hover:text-white transition">Features</a>
-            <a href="#comparison" className="text-gray-300 hover:text-white transition">Why LeadSync</a>
-            <a href="#pricing" className="text-gray-300 hover:text-white transition">Pricing</a>
-            <a href="#results" className="text-gray-300 hover:text-white transition">Results</a>
-            <a href="#faq" className="text-gray-300 hover:text-white transition">FAQ</a>
+            <a href="#features" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]">Features</a>
+            <a href="#comparison" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]">Why LeadSync</a>
+            <a href="#pricing" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]">Pricing</a>
+            <a href="#results" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]">Results</a>
+            <a href="#faq" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]">FAQ</a>
             <a
               href="https://app.goleadsyncs.com/"
-              className="px-6 py-2 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition"
+              className="px-6 py-2 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
             >
               Login
             </a>
           </div>
 
           {/* Mobile menu button */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-            {isOpen ? <X /> : <Menu />}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          >
+            {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
           </button>
         </div>
       </div>
@@ -56,14 +63,15 @@ function Navigation() {
       {isOpen && (
         <div className="md:hidden bg-[#0a0a0f] border-t border-gray-800">
           <div className="px-4 pt-2 pb-4 space-y-2">
-            <a href="#features" className="block py-2 text-gray-300">Features</a>
-            <a href="#comparison" className="block py-2 text-gray-300">Why LeadSync</a>
-            <a href="#pricing" className="block py-2 text-gray-300">Pricing</a>
-            <a href="#results" className="block py-2 text-gray-300">Results</a>
-            <a href="#faq" className="block py-2 text-gray-300">FAQ</a>
+            <a onClick={closeMenu} href="#features" className="block py-2 text-gray-300">Features</a>
+            <a onClick={closeMenu} href="#comparison" className="block py-2 text-gray-300">Why LeadSync</a>
+            <a onClick={closeMenu} href="#pricing" className="block py-2 text-gray-300">Pricing</a>
+            <a onClick={closeMenu} href="#results" className="block py-2 text-gray-300">Results</a>
+            <a onClick={closeMenu} href="#faq" className="block py-2 text-gray-300">FAQ</a>
             <a
               href="https://app.goleadsyncs.com/"
               className="block w-full px-6 py-2 bg-gradient-primary rounded-lg font-semibold mt-2 text-center"
+              onClick={closeMenu}
             >
               Login
             </a>
@@ -79,12 +87,12 @@ function Hero() {
   const [currentRole, setCurrentRole] = useState(0);
   const roles = ['Agencies', 'Coaches', 'Consultants', 'Events', 'Medical Practices', 'Real Estate', 'Law Firms', 'SaaS Companies', 'Financial Advisors', 'Home Services'];
 
-  useState(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
     }, 2000);
     return () => clearInterval(interval);
-  });
+  }, [roles.length]);
 
   return (
     <section className="pt-32 pb-20 px-4">
@@ -125,20 +133,70 @@ function Hero() {
             Qualify instantly, fill your calendar, close more clients & never chase leads again.
           </p>
 
-          <button className="px-8 py-4 bg-gradient-primary rounded-lg text-lg font-semibold hover:opacity-90 transition transform hover:scale-105">
-            Build My FREE AI Agent
-          </button>
+          <a
+            href={SIGNUP_URL}
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary rounded-lg text-lg font-semibold hover:opacity-90 transition transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+          >
+            Get My Lead-Qualifying Agent
+          </a>
           
           <p className="text-gray-400 mt-4">14 days free, then plans start at $77 / month</p>
+          <p className="text-gray-500 mt-2 text-sm">Takes 2 minutes &bull; No credit card &bull; Cancel anytime before day 14</p>
 
           {/* Trust Badges */}
           <div className="mt-16">
             <p className="text-gray-400 mb-6">Trusted by 8,000+ companies worldwide</p>
-            <div className="flex justify-center gap-8 items-center flex-wrap opacity-50">
-              {/* Add company logos here */}
+            <div className="flex justify-center gap-4 items-center flex-wrap">
+              {['Agencies', 'Coaches', 'SaaS', 'Real Estate', 'Home Services'].map((label) => (
+                <div key={label} className="px-4 py-2 rounded-full bg-white/5 text-gray-300 text-sm border border-white/10">
+                  {label}
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center gap-4 items-center flex-wrap mt-6 opacity-60">
+              {['Client One', 'Client Two', 'Client Three', 'Client Four', 'Client Five'].map((label) => (
+                <div key={label} className="px-6 py-3 rounded-lg bg-white/5 text-gray-400 text-sm border border-white/10">
+                  {label}
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// How It Works
+function HowItWorks() {
+  const steps = [
+    {
+      title: 'Connect Your CRM',
+      description: 'Plug into GoHighLevel in minutes and sync your leads automatically.'
+    },
+    {
+      title: 'Train Your AI',
+      description: 'Answer a few questions and your agent learns your offers and tone.'
+    },
+    {
+      title: 'Book More Calls',
+      description: 'Leads are qualified and booked automatically, 24/7.'
+    }
+  ];
+
+  return (
+    <section className="py-16 px-4">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">How LeadSync Works</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {steps.map((step, index) => (
+            <div key={step.title} className="glass-effect rounded-2xl p-6">
+              <div className="text-sm text-gray-400 mb-2">Step {index + 1}</div>
+              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+              <p className="text-gray-400">{step.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -317,9 +375,13 @@ function ROICalculator() {
           <div className="text-center">
             <h3 className="text-2xl font-bold mb-4">Ready to Save ${annualSavings.toLocaleString('en-US')}/year?</h3>
             <p className="text-gray-400 mb-6">Start your 14-day free trial and see the results for yourself</p>
-            <button className="px-8 py-4 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition transform hover:scale-105">
-              Build My FREE AI Agent
-            </button>
+            <a
+              href={SIGNUP_URL}
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+            >
+              Get My Lead-Qualifying Agent
+            </a>
+            <p className="text-gray-500 mt-3 text-sm">No credit card &bull; Cancel anytime before day 14</p>
           </div>
         </motion.div>
       </div>
@@ -331,7 +393,7 @@ function ROICalculator() {
 function Features() {
   const features = [
     {
-      icon: <MessageSquare className="w-8 h-8" />,
+      icon: <MessageSquare className="w-8 h-8" aria-hidden="true" />,
       title: 'Advanced AI Conversations',
       description: 'Powered by Claude 4, delivering human-like interactions that qualify and nurture leads 24/7.',
       points: [
@@ -341,7 +403,7 @@ function Features() {
       ]
     },
     {
-      icon: <Calendar className="w-8 h-8" />,
+      icon: <Calendar className="w-8 h-8" aria-hidden="true" />,
       title: 'Smart Calendar Integration',
       description: 'Seamlessly books appointments directly through conversational AI with real-time availability.',
       points: [
@@ -351,7 +413,7 @@ function Features() {
       ]
     },
     {
-      icon: <Globe className="w-8 h-8" />,
+      icon: <Globe className="w-8 h-8" aria-hidden="true" />,
       title: 'Multi-Channel Support',
       description: 'Connect with leads across SMS, WhatsApp, Instagram, and Facebook Messenger.',
       points: [
@@ -361,7 +423,7 @@ function Features() {
       ]
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
+      icon: <TrendingUp className="w-8 h-8" aria-hidden="true" />,
       title: 'Advanced Analytics',
       description: 'Get actionable insights and real-time data to optimize your conversion rates.',
       points: [
@@ -371,7 +433,7 @@ function Features() {
       ]
     },
     {
-      icon: <Zap className="w-8 h-8" />,
+      icon: <Zap className="w-8 h-8" aria-hidden="true" />,
       title: 'Website Co-Pilot',
       description: 'Intelligent website scraping to understand your business and answer customer questions.',
       points: [
@@ -381,7 +443,7 @@ function Features() {
       ]
     },
     {
-      icon: <Settings className="w-8 h-8" />,
+      icon: <Settings className="w-8 h-8" aria-hidden="true" />,
       title: 'Custom Automation',
       description: 'Create custom workflows that update your CRM, add tags, and trigger actions automatically.',
       points: [
@@ -425,7 +487,7 @@ function Features() {
               <ul className="space-y-2">
                 {feature.points.map((point, i) => (
                   <li key={i} className="flex items-start gap-2 text-gray-300">
-                    <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                     {point}
                   </li>
                 ))}
@@ -445,7 +507,7 @@ function Testimonials() {
       name: 'Sarah Johnson',
       role: 'Founder @GrowthAgency',
       image: '👩‍💼',
-      text: 'LeadSync has completely transformed how we handle leads. The AI is incredibly smart and our conversion rates have doubled.'
+      text: 'We saw a 32% lift in qualified calls within 21 days. The AI handles objections better than any rep we've trained.'
     },
     {
       name: 'Michael Chen',
@@ -457,7 +519,7 @@ function Testimonials() {
       name: 'Emily Rodriguez',
       role: 'Marketing Director @ScaleUp',
       image: '👩',
-      text: 'Best investment we made this year. Setup was quick and the ROI came within the first month. Highly recommend!'
+      text: 'We went from 18% to 44% lead-to-call in 4 weeks. Setup took under 10 minutes and the ROI was immediate.'
     }
   ];
 
@@ -523,25 +585,29 @@ function Pricing() {
             </div>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>1 Sub-Account</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>5 AI Agents</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Basic Analytics</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Email Support</span>
               </li>
             </ul>
-            <button className="w-full px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg font-semibold transition">
+            <a
+              href={SIGNUP_URL}
+              className="block w-full px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg font-semibold transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+            >
               Start Free Trial
-            </button>
+            </a>
+            <p className="text-gray-500 mt-3 text-sm text-center">No credit card &bull; Cancel anytime before day 14</p>
           </motion.div>
 
           {/* Pro - Most Popular */}
@@ -563,29 +629,33 @@ function Pricing() {
             </div>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Unlimited Sub-Accounts</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Unlimited AI Agents</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Advanced Analytics & A/B Testing</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Priority Support</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Website Co-Pilot</span>
               </li>
             </ul>
-            <button className="w-full px-6 py-3 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition">
+            <a
+              href={SIGNUP_URL}
+              className="block w-full px-6 py-3 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+            >
               Start Free Trial
-            </button>
+            </a>
+            <p className="text-gray-500 mt-3 text-sm text-center">No credit card &bull; Cancel anytime before day 14</p>
           </motion.div>
 
           {/* Enterprise */}
@@ -602,31 +672,38 @@ function Pricing() {
             </div>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Everything in Pro</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Done-For-You Setup</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Dedicated Account Manager</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>Custom Integrations</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <span>White Label Options</span>
               </li>
             </ul>
-            <button className="w-full px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg font-semibold transition">
+            <a
+              href="https://www.linkedin.com/company/getleadsync"
+              className="block w-full px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg font-semibold transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+            >
               Contact Sales
-            </button>
+            </a>
+            <p className="text-gray-500 mt-3 text-sm text-center">Custom plans &bull; Priority onboarding</p>
           </motion.div>
         </div>
+        <p className="text-center text-sm text-gray-400 mt-8">
+          Sub-accounts refer to individual client or location accounts in your CRM. Need higher limits or a custom setup? Contact us.
+        </p>
       </div>
     </section>
   );
@@ -639,7 +716,7 @@ function FAQ() {
   const faqs = [
     {
       question: 'What makes LeadSync different from other tools?',
-      answer: 'LeadSync combines Claude AI for human-like conversations with our AI Strategy Builder, which automatically creates and manages your automation workflows. Our Website Co-Pilot learns your business instantly without manual setup, and pricing starts at just $77/month — a fraction of what most comparable platforms charge.'
+      answer: 'LeadSync combines Claude AI for human-like conversations with our AI Strategy Builder, which automatically creates and manages your automation workflows. Our Website Co-Pilot learns your business instantly without manual setup, and pricing starts at just $77/month &mdash; a fraction of what most comparable platforms charge.'
     },
     {
       question: 'How fast can I set up LeadSync?',
@@ -659,7 +736,7 @@ function FAQ() {
     },
     {
       question: 'Is there a free trial?',
-      answer: 'Yes! All plans come with a 14-day free trial. No credit card required to start. Experience the difference yourself before committing.'
+      answer: 'Yes! All plans come with a 14-day free trial. No credit card required to start. Cancel anytime before day 14.'
     }
   ];
 
@@ -687,6 +764,7 @@ function FAQ() {
                   className={`w-5 h-5 transition-transform ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
+                  aria-hidden="true"
                 />
               </button>
               {openIndex === index && (
@@ -721,7 +799,7 @@ function CTA() {
         <button className="px-8 py-4 bg-gradient-primary rounded-lg text-lg font-semibold hover:opacity-90 transition transform hover:scale-105">
           Start Your Free 14-Day Trial
         </button>
-        <p className="text-gray-400 mt-4">No credit card required • Cancel anytime</p>
+        <p className="text-gray-400 mt-4">No credit card required &bull; Cancel anytime before day 14</p>
       </motion.div>
     </section>
   );
@@ -747,33 +825,31 @@ function Footer() {
             <ul className="space-y-2 text-gray-400 text-sm">
               <li><a href="#features" className="hover:text-white transition">Features</a></li>
               <li><a href="#pricing" className="hover:text-white transition">Pricing</a></li>
-              <li><a href="#" className="hover:text-white transition">Integrations</a></li>
-              <li><a href="#" className="hover:text-white transition">Changelog</a></li>
+              <li><a href="#results" className="hover:text-white transition">Results</a></li>
+              <li><a href="#faq" className="hover:text-white transition">FAQ</a></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-white transition">About</a></li>
-              <li><a href="#" className="hover:text-white transition">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition">Careers</a></li>
-              <li><a href="#" className="hover:text-white transition">Contact</a></li>
+              <li><a href="https://www.linkedin.com/company/getleadsync" className="hover:text-white transition">LinkedIn</a></li>
+              <li><a href="mailto:hello@goleadsyncs.com" className="hover:text-white transition">Contact</a></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-white transition">Privacy</a></li>
-              <li><a href="#" className="hover:text-white transition">Terms</a></li>
-              <li><a href="#" className="hover:text-white transition">Security</a></li>
+              <li>Privacy</li>
+              <li>Terms</li>
+              <li>Security</li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-          <p>© 2026 LeadSync. All rights reserved.</p>
+          <p>&copy; 2026 LeadSync. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -783,9 +859,10 @@ function Footer() {
 // Main Page Component
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pb-24 md:pb-0">
       <Navigation />
       <Hero />
+      <HowItWorks />
       <Comparison />
       <ROICalculator />
       <Features />
@@ -794,6 +871,20 @@ export default function Home() {
       <FAQ />
       <CTA />
       <Footer />
+
+      {/* Mobile sticky CTA */}
+      <div className="fixed bottom-4 left-0 right-0 z-40 md:hidden px-4">
+        <a
+          href={SIGNUP_URL}
+          className="block w-full text-center px-6 py-3 bg-gradient-primary rounded-lg font-semibold shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+        >
+          Get My Lead-Qualifying Agent
+        </a>
+      </div>
     </main>
   );
 }
+
+
+
+

@@ -36,6 +36,12 @@
   html {
     scroll-behavior: smooth;
   }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.6), 0 0 0 4px rgba(10, 14, 26, 0.9);
+  }
 }
 
 @layer utilities {
