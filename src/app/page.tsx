@@ -506,19 +506,19 @@ function Testimonials() {
     {
       name: 'Sarah Johnson',
       role: 'Founder @GrowthAgency',
-      image: '👩‍💼',
-      text: 'We saw a 32% lift in qualified calls within 21 days. The AI handles objections better than any rep we've trained.'
+      image: 'SJ',
+      text: 'We saw a 32% lift in qualified calls within 21 days. The AI handles objections better than any rep we trained.'
     },
     {
       name: 'Michael Chen',
       role: 'CEO @TechConsulting',
-      image: '👨‍💼',
+      image: 'MC',
       text: 'We were paying over $300/mo on other tools with mediocre results. LeadSync cut our costs in half and doubled our conversions. The AI conversations are remarkably natural.'
     },
     {
       name: 'Emily Rodriguez',
       role: 'Marketing Director @ScaleUp',
-      image: '👩',
+      image: 'ER',
       text: 'We went from 18% to 44% lead-to-call in 4 weeks. Setup took under 10 minutes and the ROI was immediate.'
     }
   ];
@@ -884,6 +884,7 @@ export default function Home() {
     </main>
   );
 }
+
 
 
 
