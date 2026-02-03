@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(test:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev)",
+      "Bash(taskkill:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(npm run build:*)",
+      "Bash(powershell -Command \"Compress-Archive -Path ''out\\\\*'' -DestinationPath ''leadsync-website-deploy.zip'' -Force\")",
+      "Bash(ls:*)"
+    ]
+  }
+}
