@@ -612,7 +612,11 @@ const PRICING_PLANS: PricingPlan[] = [
     name: 'Launch Sync Unlimited',
     monthly: 497,
     annual: 415,
-    limits: ['Unlimited sub-accounts', 'Unlimited everything'],
+    limits: [
+      'Unlimited Sub Accounts',
+      'Unlimited AI agents',
+      'Unlimited Users per sub-account',
+    ],
     features: [
       'Everything in Pro',
       'Done-for-you agent building',
@@ -720,7 +724,7 @@ function Pricing() {
                 <div className="text-[12px] text-gray-500 mb-1">{formatZAR(price)}/mo at R{ZAR_RATE.toFixed(2)}/USD</div>
                 {annual ? (
                   <div className="text-[11px] mb-6" style={{ color: '#c084fc' }}>
-                    Billed ${yearlyTotal.toLocaleString()}/yr &mdash; save ${yearlySavings.toLocaleString()}/yr
+                    Billed ${yearlyTotal.toLocaleString()}/yr, save ${yearlySavings.toLocaleString()}/yr
                   </div>
                 ) : (
                   <div className="text-[11px] mb-6" style={{ color: '#c084fc' }}>
@@ -788,8 +792,8 @@ function Pricing() {
 
         <p className="text-center text-sm text-gray-400 mt-10">
           {annual
-            ? 'Annual plans billed once per year — best value, save ~17%. 14-day free trial. Cancel anytime before day 14.'
-            : 'Monthly billing, cancel anytime. 14-day free trial — no credit card required. Prices in USD; ZAR shown for reference at R18.20/USD.'}
+            ? 'Annual plans billed once per year. Best value, save ~17%. 14-day free trial. Cancel anytime before day 14.'
+            : 'Monthly billing, cancel anytime. 14-day free trial, no credit card required. Prices in USD; ZAR shown for reference at R18.20/USD.'}
         </p>
       </div>
     </section>
@@ -803,7 +807,7 @@ function FAQ() {
   const faqs = [
     {
       question: 'What makes LeadSync different from other tools?',
-      answer: 'LeadSync combines Claude AI for human-like conversations with our AI Strategy Builder, which automatically creates and manages your automation workflows. Our Website Co-Pilot learns your business instantly without manual setup, and pricing starts at just $77/month &mdash; a fraction of what most comparable platforms charge.'
+      answer: 'LeadSync combines Claude AI for human-like conversations with our AI Strategy Builder, which automatically creates and manages your automation workflows. Our Website Co-Pilot learns your business instantly without manual setup, and pricing starts at just $77/month, a fraction of what most comparable platforms charge.'
     },
     {
       question: 'How fast can I set up LeadSync?',
