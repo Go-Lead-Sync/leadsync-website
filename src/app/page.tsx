@@ -599,7 +599,6 @@ const PRICING_PLANS: PricingPlan[] = [
     features: [
       'Everything in Starter',
       'WhatsApp support',
-      'Split testing / A/B testing',
       'Smart routing',
       'Advanced analytics',
       'Priority support',
