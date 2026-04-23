@@ -555,7 +555,83 @@ function Testimonials() {
 }
 
 // Pricing Section
+const ZAR_RATE = 18.20;
+
+type PricingPlan = {
+  name: string;
+  monthly: number;
+  annual: number;
+  featured?: boolean;
+  badge?: string;
+  limits: string[];
+  features: string[];
+  setupFee?: number;
+  cta: string;
+  ctaHref: string;
+  ctaStyle: 'primary' | 'secondary';
+};
+
+const PRICING_PLANS: PricingPlan[] = [
+  {
+    name: 'Starter',
+    monthly: 97,
+    annual: 81,
+    limits: ['1 sub-account', '2 AI agents', '3 users per sub-account'],
+    features: [
+      'Full Flow Editor',
+      'Knowledge base training',
+      'AI Co-Pilot Builder',
+      'Test Playground',
+      'Basic analytics',
+      'GHL integration',
+    ],
+    cta: 'Start Free Trial',
+    ctaHref: SIGNUP_URL,
+    ctaStyle: 'secondary',
+  },
+  {
+    name: 'Pro',
+    monthly: 297,
+    annual: 248,
+    featured: true,
+    badge: 'Most popular',
+    limits: ['5 sub-accounts', 'Unlimited AI agents', '10 users per sub-account'],
+    features: [
+      'Everything in Starter',
+      'WhatsApp support',
+      'Split testing / A/B testing',
+      'Smart routing',
+      'Advanced analytics',
+      'Priority support',
+    ],
+    cta: 'Start Free Trial',
+    ctaHref: SIGNUP_URL,
+    ctaStyle: 'primary',
+  },
+  {
+    name: 'Launch Sync Unlimited',
+    monthly: 497,
+    annual: 415,
+    limits: ['Unlimited sub-accounts', 'Unlimited everything'],
+    features: [
+      'Everything in Pro',
+      'Done-for-you agent building',
+      'We build & launch your agent',
+    ],
+    setupFee: 997,
+    cta: 'Get Launch Sync',
+    ctaHref: SIGNUP_URL,
+    ctaStyle: 'secondary',
+  },
+];
+
+function formatZAR(usd: number) {
+  return `~R${(usd * ZAR_RATE).toLocaleString('en-ZA', { maximumFractionDigits: 0 })}`;
+}
+
 function Pricing() {
+  const [annual, setAnnual] = useState(false);
+
   return (
     <section id="pricing" className="py-20 px-4 bg-gradient-to-b from-[#0a0a0f] to-[#151520]">
       <div className="max-w-7xl mx-auto">
@@ -563,7 +639,7 @@ function Pricing() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Simple, Transparent Pricing
@@ -571,138 +647,149 @@ function Pricing() {
           <p className="text-xl text-gray-400">Choose the plan that fits your business</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Starter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="glass-effect rounded-2xl p-8"
+        {/* Billing toggle */}
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <span className={`text-sm font-medium transition ${!annual ? 'text-white' : 'text-gray-400'}`}>
+            Monthly
+          </span>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={annual}
+            aria-label="Toggle annual billing"
+            onClick={() => setAnnual(!annual)}
+            className="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+            style={{ backgroundColor: annual ? '#7C3AED' : 'rgba(255,255,255,0.2)' }}
           >
-            <h3 className="text-2xl font-bold mb-2">Starter</h3>
-            <div className="text-5xl font-bold mb-6">
-              $77<span className="text-2xl text-gray-400">/mo</span>
-            </div>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>1 Sub-Account</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>5 AI Agents</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Basic Analytics</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Email Support</span>
-              </li>
-            </ul>
-            <a
-              href={SIGNUP_URL}
-              className="block w-full px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg font-semibold transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+            <span
+              aria-hidden="true"
+              className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                annual ? 'translate-x-5' : 'translate-x-0'
+              }`}
+            />
+          </button>
+          <div className="flex items-center gap-2">
+            <span className={`text-sm font-medium transition ${annual ? 'text-white' : 'text-gray-400'}`}>
+              Annual
+            </span>
+            <span
+              className="text-[11px] font-semibold px-2 py-0.5 rounded-full"
+              style={{ backgroundColor: '#EDE9FE', color: '#5B21B6' }}
             >
-              Start Free Trial
-            </a>
-            <p className="text-gray-500 mt-3 text-sm text-center">No credit card &bull; Cancel anytime before day 14</p>
-          </motion.div>
-
-          {/* Pro - Most Popular */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="glass-effect rounded-2xl p-8 border-2 border-purple-500 relative"
-          >
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <span className="bg-gradient-primary px-4 py-1 rounded-full text-sm font-semibold">
-                Most Popular
-              </span>
-            </div>
-            <h3 className="text-2xl font-bold mb-2">Pro</h3>
-            <div className="text-5xl font-bold mb-6">
-              $197<span className="text-2xl text-gray-400">/mo</span>
-            </div>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Unlimited Sub-Accounts</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Unlimited AI Agents</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Advanced Analytics & A/B Testing</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Priority Support</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Website Co-Pilot</span>
-              </li>
-            </ul>
-            <a
-              href={SIGNUP_URL}
-              className="block w-full px-6 py-3 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
-            >
-              Start Free Trial
-            </a>
-            <p className="text-gray-500 mt-3 text-sm text-center">No credit card &bull; Cancel anytime before day 14</p>
-          </motion.div>
-
-          {/* Enterprise */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="glass-effect rounded-2xl p-8"
-          >
-            <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
-            <div className="text-5xl font-bold mb-6">
-              Custom
-            </div>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Everything in Pro</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Done-For-You Setup</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Dedicated Account Manager</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>Custom Integrations</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <span>White Label Options</span>
-              </li>
-            </ul>
-            <a
-              href="https://www.linkedin.com/company/getleadsync"
-              className="block w-full px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg font-semibold transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
-            >
-              Contact Sales
-            </a>
-            <p className="text-gray-500 mt-3 text-sm text-center">Custom plans &bull; Priority onboarding</p>
-          </motion.div>
+              Save 17%
+            </span>
+          </div>
         </div>
-        <p className="text-center text-sm text-gray-400 mt-8">
-          Sub-accounts refer to individual client or location accounts in your CRM. Need higher limits or a custom setup? Contact us.
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+          {PRICING_PLANS.map((plan, index) => {
+            const price = annual ? plan.annual : plan.monthly;
+            const yearlyTotal = plan.annual * 12;
+            const yearlySavings = (plan.monthly - plan.annual) * 12;
+
+            return (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`glass-effect rounded-2xl p-8 relative flex flex-col ${
+                  plan.featured ? 'border-2' : 'border border-white/10'
+                }`}
+                style={plan.featured ? { borderColor: '#7C3AED', borderWidth: '2px' } : undefined}
+              >
+                {plan.badge && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <span
+                      className="px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wide"
+                      style={{ backgroundColor: '#7C3AED', color: 'white' }}
+                    >
+                      {plan.badge}
+                    </span>
+                  </div>
+                )}
+
+                <h3 className="text-xl font-bold mb-3 text-white">{plan.name}</h3>
+
+                {/* Price */}
+                <div className="mb-1">
+                  <span className="text-[26px] font-bold text-white">${price}</span>
+                  <span className="text-sm text-gray-400 ml-1">/mo</span>
+                </div>
+                <div className="text-[12px] text-gray-500 mb-1">{formatZAR(price)}/mo at R{ZAR_RATE.toFixed(2)}/USD</div>
+                {annual ? (
+                  <div className="text-[11px] mb-6" style={{ color: '#c084fc' }}>
+                    Billed ${yearlyTotal.toLocaleString()}/yr &mdash; save ${yearlySavings.toLocaleString()}/yr
+                  </div>
+                ) : (
+                  <div className="text-[11px] mb-6" style={{ color: '#c084fc' }}>
+                    Switch to annual to save ${yearlySavings.toLocaleString()}/yr
+                  </div>
+                )}
+
+                {/* Limits */}
+                <div className="mb-5">
+                  <div className="text-xs uppercase tracking-wider text-gray-500 mb-3 font-semibold">Limits</div>
+                  <ul className="space-y-2">
+                    {plan.limits.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-gray-200">
+                        <span aria-hidden="true" style={{ color: '#7C3AED' }} className="flex-shrink-0 mt-0.5">&#10022;</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Divider */}
+                <div className="border-t border-white/10 mb-5" />
+
+                {/* Features */}
+                <div className="mb-6">
+                  <div className="text-xs uppercase tracking-wider text-gray-500 mb-3 font-semibold">Features</div>
+                  <ul className="space-y-2">
+                    {plan.features.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-gray-200">
+                        <span aria-hidden="true" style={{ color: '#7C3AED' }} className="flex-shrink-0 mt-0.5">&#10022;</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* CTA pinned to bottom */}
+                <div className="mt-auto">
+                  <a
+                    href={plan.ctaHref}
+                    className={`block w-full px-6 py-3 rounded-lg font-semibold transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f] ${
+                      plan.ctaStyle === 'primary'
+                        ? 'bg-gradient-primary hover:opacity-90'
+                        : 'bg-white/10 hover:bg-white/20'
+                    }`}
+                  >
+                    {plan.cta}
+                  </a>
+
+                  {plan.setupFee && (
+                    <div className="mt-4 text-center">
+                      <span
+                        className="inline-block text-[11px] font-medium px-3 py-1 rounded-full"
+                        style={{ backgroundColor: 'rgba(237, 233, 254, 0.1)', color: '#c4b5fd' }}
+                      >
+                        One-time setup fee: ${plan.setupFee}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <p className="text-center text-sm text-gray-400 mt-10">
+          {annual
+            ? 'Annual plans billed once per year — best value, save ~17%. 14-day free trial. Cancel anytime before day 14.'
+            : 'Monthly billing, cancel anytime. 14-day free trial — no credit card required. Prices in USD; ZAR shown for reference at R18.20/USD.'}
         </p>
       </div>
     </section>
