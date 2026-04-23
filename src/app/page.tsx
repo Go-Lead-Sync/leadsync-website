@@ -140,7 +140,7 @@ function Hero() {
             Get My Lead-Qualifying Agent
           </a>
           
-          <p className="text-gray-400 mt-4">14 days free, then plans start at $77 / month</p>
+          <p className="text-gray-400 mt-4">14 days free, then plans start at $97 / month</p>
           <p className="text-gray-500 mt-2 text-sm">Takes 2 minutes &bull; No credit card &bull; Cancel anytime before day 14</p>
 
           {/* Trust Badges */}
@@ -233,9 +233,9 @@ function Comparison() {
             <div className="space-y-4">
               <div>
                 <div className="text-gray-400 text-sm mb-2">Industry average:</div>
-                <div className="text-3xl font-bold text-red-400">30-40%</div>
+                <div className="text-3xl font-bold text-red-400">2-5%</div>
               </div>
-              
+
               <div>
                 <div className="text-gray-400 text-sm mb-2">LeadSync average:</div>
                 <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">45-55%</div>
@@ -257,12 +257,12 @@ function Comparison() {
             <div className="space-y-4">
               <div>
                 <div className="text-gray-400 text-sm mb-2">Industry average:</div>
-                <div className="text-3xl font-bold text-red-400">$297/month</div>
+                <div className="text-3xl font-bold text-red-400">$499/month</div>
               </div>
               
               <div>
                 <div className="text-gray-400 text-sm mb-2">LeadSync costs:</div>
-                <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">$77/month</div>
+                <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">From $97/month</div>
               </div>
             </div>
           </motion.div>
@@ -280,13 +280,13 @@ function Comparison() {
             
             <div className="space-y-4">
               <div>
-                <div className="text-gray-400 text-sm mb-2">Traditional capacity:</div>
-                <div className="text-3xl font-bold text-gray-400">1,000/leads per day</div>
+                <div className="text-gray-400 text-sm mb-2">Per SDR:</div>
+                <div className="text-3xl font-bold text-gray-400">50-100 leads/day</div>
               </div>
-              
+
               <div>
                 <div className="text-gray-400 text-sm mb-2">LeadSync capacity:</div>
-                <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">Unlimited</div>
+                <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">Unlimited, 24/7</div>
               </div>
             </div>
           </motion.div>
@@ -803,7 +803,7 @@ function FAQ() {
   const faqs = [
     {
       question: 'What makes LeadSync different from other tools?',
-      answer: 'LeadSync combines Claude AI for human-like conversations with our AI Strategy Builder, which automatically creates and manages your automation workflows. Our Website Co-Pilot learns your business instantly without manual setup, and pricing starts at just $77/month, a fraction of what most comparable platforms charge.'
+      answer: 'LeadSync combines Claude AI for human-like conversations with our AI Strategy Builder, which automatically creates and manages your automation workflows. Our Website Co-Pilot learns your business instantly without manual setup, and pricing starts at just $97/month, a fraction of what most comparable platforms charge.'
     },
     {
       question: 'How fast can I set up LeadSync?',
