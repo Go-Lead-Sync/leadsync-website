@@ -24,7 +24,7 @@ function Navigation() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass-effect">
+    <nav className="fixed top-0 w-full z-50 panel-effect">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
@@ -35,14 +35,14 @@ function Navigation() {
           
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]">Features</a>
-            <a href="#comparison" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]">Why LeadSync</a>
-            <a href="#pricing" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]">Pricing</a>
-            <a href="#results" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]">Results</a>
-            <a href="#faq" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]">FAQ</a>
+            <a href="#features" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Features</a>
+            <a href="#comparison" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Why LeadSync</a>
+            <a href="#pricing" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Pricing</a>
+            <a href="#results" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Results</a>
+            <a href="#faq" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">FAQ</a>
             <a
               href="https://app.goleadsyncs.com/"
-              className="px-6 py-2 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+              className="px-6 py-2 bg-gradient-primary rounded-[9px] shadow-glow-primary font-semibold hover:opacity-90 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
             >
               Login
             </a>
@@ -51,7 +51,7 @@ function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+            className="md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
             aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
@@ -61,7 +61,7 @@ function Navigation() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#0a0a0f] border-t border-gray-800">
+        <div className="md:hidden panel-effect border-t border-hairline">
           <div className="px-4 pt-2 pb-4 space-y-2">
             <a onClick={closeMenu} href="#features" className="block py-2 text-gray-300">Features</a>
             <a onClick={closeMenu} href="#comparison" className="block py-2 text-gray-300">Why LeadSync</a>
@@ -70,7 +70,7 @@ function Navigation() {
             <a onClick={closeMenu} href="#faq" className="block py-2 text-gray-300">FAQ</a>
             <a
               href="https://app.goleadsyncs.com/"
-              className="block w-full px-6 py-2 bg-gradient-primary rounded-lg font-semibold mt-2 text-center"
+              className="block w-full px-6 py-2 bg-gradient-primary rounded-[9px] shadow-glow-primary font-semibold mt-2 text-center"
               onClick={closeMenu}
             >
               Login
@@ -135,7 +135,7 @@ function Hero() {
 
           <a
             href={SIGNUP_URL}
-            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary rounded-lg text-lg font-semibold hover:opacity-90 transition transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary rounded-[9px] shadow-glow-primary text-lg font-semibold hover:opacity-90 transition transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
           >
             Get My Lead-Qualifying Agent
           </a>
@@ -155,7 +155,7 @@ function Hero() {
             </div>
             <div className="flex justify-center gap-4 items-center flex-wrap mt-6 opacity-60">
               {['Client One', 'Client Two', 'Client Three', 'Client Four', 'Client Five'].map((label) => (
-                <div key={label} className="px-6 py-3 rounded-lg bg-white/5 text-gray-400 text-sm border border-white/10">
+                <div key={label} className="px-6 py-3 rounded-[9px] bg-white/5 text-gray-400 text-sm border border-white/10">
                   {label}
                 </div>
               ))}
@@ -190,7 +190,7 @@ function HowItWorks() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">How LeadSync Works</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step, index) => (
-            <div key={step.title} className="glass-effect rounded-2xl p-6">
+            <div key={step.title} className="glass-effect rounded-[14px] p-6">
               <div className="text-sm text-gray-400 mb-2">Step {index + 1}</div>
               <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
               <p className="text-gray-400">{step.description}</p>
@@ -205,7 +205,7 @@ function HowItWorks() {
 // Comparison Section
 function Comparison() {
   return (
-    <section id="comparison" className="py-20 px-4 bg-gradient-to-b from-[#0a0a0f] to-[#151520]">
+    <section id="comparison" className="py-20 px-4 bg-transparent">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -225,7 +225,7 @@ function Comparison() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-effect rounded-2xl p-8"
+            className="glass-effect rounded-[14px] p-8"
           >
             <div className="text-6xl mb-4">01.</div>
             <h3 className="text-2xl font-bold mb-6">Increase conversions</h3>
@@ -249,7 +249,7 @@ function Comparison() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="glass-effect rounded-2xl p-8"
+            className="glass-effect rounded-[14px] p-8"
           >
             <div className="text-6xl mb-4">02.</div>
             <h3 className="text-2xl font-bold mb-6">Reduce expenses</h3>
@@ -273,7 +273,7 @@ function Comparison() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="glass-effect rounded-2xl p-8"
+            className="glass-effect rounded-[14px] p-8"
           >
             <div className="text-6xl mb-4">03.</div>
             <h3 className="text-2xl font-bold mb-6">Maximize capacity</h3>
@@ -320,7 +320,7 @@ function ROICalculator() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="glass-effect rounded-3xl p-8 md:p-12"
+          className="glass-effect rounded-[20px] p-8 md:p-12"
         >
           <h2 className="text-4xl font-bold text-center mb-12">Calculate Your ROI with LeadSync</h2>
           
@@ -331,7 +331,7 @@ function ROICalculator() {
                 type="number"
                 value={leads}
                 onChange={(e) => setLeads(Number(e.target.value))}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white"
+                className="w-full bg-white/5 border border-white/10 rounded-[9px] px-4 py-3 text-white"
               />
             </div>
             
@@ -341,7 +341,7 @@ function ROICalculator() {
                 type="number"
                 value={dealValue}
                 onChange={(e) => setDealValue(Number(e.target.value))}
-                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white"
+                className="w-full bg-white/5 border border-white/10 rounded-[9px] px-4 py-3 text-white"
               />
             </div>
           </div>
@@ -377,7 +377,7 @@ function ROICalculator() {
             <p className="text-gray-400 mb-6">Start your 14-day free trial and see the results for yourself</p>
             <a
               href={SIGNUP_URL}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary rounded-lg font-semibold hover:opacity-90 transition transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary rounded-[9px] shadow-glow-primary font-semibold hover:opacity-90 transition transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
             >
               Get My Lead-Qualifying Agent
             </a>
@@ -455,7 +455,7 @@ function Features() {
   ];
 
   return (
-    <section id="features" className="py-20 px-4 bg-gradient-to-b from-[#151520] to-[#0a0a0f]">
+    <section id="features" className="py-20 px-4 bg-transparent">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -477,9 +477,9 @@ function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-effect rounded-2xl p-8 hover:border-purple-500/50 transition"
+              className="glass-effect rounded-[14px] p-8 hover:border-primary/40 transition"
             >
-              <div className="bg-gradient-primary w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+              <div className="bg-gradient-primary w-16 h-16 rounded-[9px] flex items-center justify-center mb-6">
                 {feature.icon}
               </div>
               <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
@@ -487,7 +487,7 @@ function Features() {
               <ul className="space-y-2">
                 {feature.points.map((point, i) => (
                   <li key={i} className="flex items-start gap-2 text-gray-300">
-                    <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true" />
                     {point}
                   </li>
                 ))}
@@ -536,7 +536,7 @@ function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-effect rounded-2xl p-8"
+              className="glass-effect rounded-[14px] p-8"
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="text-4xl">{testimonial.image}</div>
@@ -637,7 +637,7 @@ function Pricing() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <section id="pricing" className="py-20 px-4 bg-gradient-to-b from-[#0a0a0f] to-[#151520]">
+    <section id="pricing" className="py-20 px-4 bg-transparent">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -662,7 +662,7 @@ function Pricing() {
             aria-checked={annual}
             aria-label="Toggle annual billing"
             onClick={() => setAnnual(!annual)}
-            className="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+            className="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
             style={{ backgroundColor: annual ? '#7C3AED' : 'rgba(255,255,255,0.2)' }}
           >
             <span
@@ -698,17 +698,13 @@ function Pricing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`glass-effect rounded-2xl p-8 relative flex flex-col ${
-                  plan.featured ? 'border-2' : 'border border-white/10'
+                className={`glass-effect rounded-[14px] p-8 relative flex flex-col ${
+                  plan.featured ? 'border-2 border-primary shadow-glow' : ''
                 }`}
-                style={plan.featured ? { borderColor: '#7C3AED', borderWidth: '2px' } : undefined}
               >
                 {plan.badge && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span
-                      className="px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wide"
-                      style={{ backgroundColor: '#7C3AED', color: 'white' }}
-                    >
+                    <span className="px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wide bg-gradient-primary shadow-glow-primary text-white">
                       {plan.badge}
                     </span>
                   </div>
@@ -738,7 +734,7 @@ function Pricing() {
                   <ul className="space-y-2">
                     {plan.limits.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-gray-200">
-                        <span aria-hidden="true" style={{ color: '#7C3AED' }} className="flex-shrink-0 mt-0.5">&#10022;</span>
+                        <span aria-hidden="true" className="flex-shrink-0 mt-0.5 text-primary">&#10022;</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -754,7 +750,7 @@ function Pricing() {
                   <ul className="space-y-2">
                     {plan.features.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-gray-200">
-                        <span aria-hidden="true" style={{ color: '#7C3AED' }} className="flex-shrink-0 mt-0.5">&#10022;</span>
+                        <span aria-hidden="true" className="flex-shrink-0 mt-0.5 text-primary">&#10022;</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -765,10 +761,10 @@ function Pricing() {
                 <div className="mt-auto">
                   <a
                     href={plan.ctaHref}
-                    className={`block w-full px-6 py-3 rounded-lg font-semibold transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f] ${
+                    className={`block w-full px-6 py-3 rounded-[9px] font-semibold transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816] ${
                       plan.ctaStyle === 'primary'
-                        ? 'bg-gradient-primary hover:opacity-90'
-                        : 'bg-white/10 hover:bg-white/20'
+                        ? 'bg-gradient-primary shadow-glow-primary hover:opacity-90'
+                        : 'bg-white/10 hover:bg-white/20 border border-hairline'
                     }`}
                   >
                     {plan.cta}
@@ -844,7 +840,7 @@ function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="glass-effect rounded-xl overflow-hidden"
+              className="glass-effect rounded-[14px] overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -874,7 +870,7 @@ function FAQ() {
 // CTA Section
 function CTA() {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-[#151520] to-[#0a0a0f]">
+    <section className="py-20 px-4 bg-transparent">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -887,7 +883,7 @@ function CTA() {
         <p className="text-xl text-gray-400 mb-8">
           Join 8,000+ companies using LeadSync to close more deals
         </p>
-        <button className="px-8 py-4 bg-gradient-primary rounded-lg text-lg font-semibold hover:opacity-90 transition transform hover:scale-105">
+        <button className="px-8 py-4 bg-gradient-primary rounded-[9px] shadow-glow-primary text-lg font-semibold hover:opacity-90 transition transform hover:scale-105">
           Start Your Free 14-Day Trial
         </button>
         <p className="text-gray-400 mt-4">No credit card required &bull; Cancel anytime before day 14</p>
@@ -899,7 +895,7 @@ function CTA() {
 // Footer
 function Footer() {
   return (
-    <footer className="border-t border-gray-800 py-12 px-4">
+    <footer className="border-t border-hairline py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -939,7 +935,7 @@ function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+        <div className="border-t border-hairline pt-8 text-center text-gray-400 text-sm">
           <p>&copy; 2026 LeadSync. All rights reserved.</p>
         </div>
       </div>
@@ -967,7 +963,7 @@ export default function Home() {
       <div className="fixed bottom-4 left-0 right-0 z-40 md:hidden px-4">
         <a
           href={SIGNUP_URL}
-          className="block w-full text-center px-6 py-3 bg-gradient-primary rounded-lg font-semibold shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+          className="block w-full text-center px-6 py-3 bg-gradient-primary rounded-[9px] shadow-glow-primary font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
         >
           Get My Lead-Qualifying Agent
         </a>
