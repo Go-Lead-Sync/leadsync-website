@@ -238,7 +238,7 @@ function Comparison() {
 
               <div>
                 <div className="text-gray-400 text-sm mb-2">LeadSync average:</div>
-                <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">45-55%</div>
+                <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">35-55%</div>
               </div>
             </div>
           </motion.div>
