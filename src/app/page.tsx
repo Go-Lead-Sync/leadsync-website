@@ -589,7 +589,7 @@ const PRICING_PLANS: PricingPlan[] = [
     ],
     paystackMonthly: 'https://paystack.shop/pay/oy8wqg73g6',
     paystackAnnual: 'https://paystack.shop/pay/f9a3mdep1i',
-    cta: 'Start Free Trial',
+    cta: 'Get the Starter plan',
     ctaStyle: 'secondary',
   },
   {
@@ -608,7 +608,7 @@ const PRICING_PLANS: PricingPlan[] = [
     ],
     paystackMonthly: 'https://paystack.shop/pay/epykrgar98',
     paystackAnnual: 'https://paystack.shop/pay/bw2gq9va7o',
-    cta: 'Start Free Trial',
+    cta: 'Get the Pro plan',
     ctaStyle: 'primary',
   },
   {
