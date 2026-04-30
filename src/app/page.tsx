@@ -566,8 +566,10 @@ type PricingPlan = {
   limits: string[];
   features: string[];
   setupFee?: number;
+  paystackMonthly: string;
+  paystackAnnual: string;
+  paystackSetup?: string;
   cta: string;
-  ctaHref: string;
   ctaStyle: 'primary' | 'secondary';
 };
 
@@ -585,8 +587,9 @@ const PRICING_PLANS: PricingPlan[] = [
       'Basic analytics',
       'GHL integration',
     ],
+    paystackMonthly: 'https://paystack.shop/pay/oy8wqg73g6',
+    paystackAnnual: 'https://paystack.shop/pay/f9a3mdep1i',
     cta: 'Start Free Trial',
-    ctaHref: SIGNUP_URL,
     ctaStyle: 'secondary',
   },
   {
@@ -603,8 +606,9 @@ const PRICING_PLANS: PricingPlan[] = [
       'Advanced analytics',
       'Priority support',
     ],
+    paystackMonthly: 'https://paystack.shop/pay/epykrgar98',
+    paystackAnnual: 'https://paystack.shop/pay/bw2gq9va7o',
     cta: 'Start Free Trial',
-    ctaHref: SIGNUP_URL,
     ctaStyle: 'primary',
   },
   {
@@ -622,8 +626,10 @@ const PRICING_PLANS: PricingPlan[] = [
       'We build & launch your agent',
     ],
     setupFee: 997,
+    paystackMonthly: 'https://paystack.shop/pay/q-u9-3nn30',
+    paystackAnnual: 'https://paystack.shop/pay/0oz34zdhop',
+    paystackSetup: 'https://paystack.shop/pay/5q0-ux5e-j',
     cta: 'Get Launch Sync',
-    ctaHref: SIGNUP_URL,
     ctaStyle: 'secondary',
   },
 ];
@@ -648,6 +654,19 @@ function Pricing() {
             Simple, Transparent Pricing
           </h2>
           <p className="text-xl text-gray-400">Choose the plan that fits your business</p>
+
+          {/* 30-day money-back guarantee */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            <span
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold border"
+              style={{ backgroundColor: 'rgba(16,185,129,0.1)', borderColor: 'rgba(16,185,129,0.3)', color: '#34d399' }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 flex-shrink-0" aria-hidden="true">
+                <path fillRule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd" />
+              </svg>
+              30-Day Money-Back Guarantee — No questions asked
+            </span>
+          </div>
         </motion.div>
 
         {/* Billing toggle */}
@@ -759,7 +778,9 @@ function Pricing() {
                 {/* CTA pinned to bottom */}
                 <div className="mt-auto">
                   <a
-                    href={plan.ctaHref}
+                    href={annual ? plan.paystackAnnual : plan.paystackMonthly}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`block w-full px-6 py-3 rounded-[9px] font-semibold transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816] ${
                       plan.ctaStyle === 'primary'
                         ? 'bg-gradient-primary shadow-glow-primary hover:opacity-90'
@@ -771,12 +792,15 @@ function Pricing() {
 
                   {plan.setupFee && (
                     <div className="mt-4 text-center">
-                      <span
-                        className="inline-block text-[11px] font-medium px-3 py-1 rounded-full"
+                      <a
+                        href={plan.paystackSetup}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-[11px] font-medium px-3 py-1 rounded-full hover:opacity-80 transition"
                         style={{ backgroundColor: 'rgba(237, 233, 254, 0.1)', color: '#c4b5fd' }}
                       >
                         One-time setup fee: ${plan.setupFee}
-                      </span>
+                      </a>
                     </div>
                   )}
                 </div>
