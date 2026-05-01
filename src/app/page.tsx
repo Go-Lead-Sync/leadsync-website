@@ -27,13 +27,8 @@ function Navigation() {
     <nav className="fixed top-0 w-full z-50 panel-effect">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center gap-3">
-            <div className="ls-logo">
-              <Zap className="w-[18px] h-[18px] text-white" aria-hidden="true" />
-            </div>
-            <span className="text-xl font-extrabold bg-gradient-primary bg-clip-text text-transparent tracking-tight">
-              LeadSync
-            </span>
+          <div className="flex items-center">
+            <img src="/logo.png" alt="LeadSync" className="h-8 w-auto" />
           </div>
           
           {/* Desktop Nav */}
@@ -944,13 +939,8 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="ls-logo">
-                <Zap className="w-[16px] h-[16px] text-white" aria-hidden="true" />
-              </div>
-              <span className="text-xl font-extrabold bg-gradient-primary bg-clip-text text-transparent tracking-tight">
-                LeadSync
-              </span>
+            <div className="mb-4">
+              <img src="/logo.png" alt="LeadSync" className="h-8 w-auto" />
             </div>
             <p className="text-ink-subtle text-sm">
               The most advanced AI-powered lead management platform for modern businesses.
