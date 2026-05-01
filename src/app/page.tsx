@@ -27,19 +27,22 @@ function Navigation() {
     <nav className="fixed top-0 w-full z-50 panel-effect">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <div className="flex items-center gap-3">
+            <div className="ls-logo">
+              <Zap className="w-[18px] h-[18px] text-white" aria-hidden="true" />
+            </div>
+            <span className="text-xl font-extrabold bg-gradient-primary bg-clip-text text-transparent tracking-tight">
               LeadSync
             </span>
           </div>
           
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Features</a>
-            <a href="#comparison" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Why LeadSync</a>
-            <a href="#pricing" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Pricing</a>
-            <a href="#results" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Results</a>
-            <a href="#faq" className="text-gray-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">FAQ</a>
+            <a href="#features" className="text-ink-muted hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Features</a>
+            <a href="#comparison" className="text-ink-muted hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Why LeadSync</a>
+            <a href="#pricing" className="text-ink-muted hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Pricing</a>
+            <a href="#results" className="text-ink-muted hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">Results</a>
+            <a href="#faq" className="text-ink-muted hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]">FAQ</a>
             <a
               href="https://app.goleadsyncs.com/"
               className="px-6 py-2 bg-gradient-primary rounded-[9px] shadow-glow-primary font-semibold hover:opacity-90 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
@@ -63,11 +66,11 @@ function Navigation() {
       {isOpen && (
         <div className="md:hidden panel-effect border-t border-hairline">
           <div className="px-4 pt-2 pb-4 space-y-2">
-            <a onClick={closeMenu} href="#features" className="block py-2 text-gray-300">Features</a>
-            <a onClick={closeMenu} href="#comparison" className="block py-2 text-gray-300">Why LeadSync</a>
-            <a onClick={closeMenu} href="#pricing" className="block py-2 text-gray-300">Pricing</a>
-            <a onClick={closeMenu} href="#results" className="block py-2 text-gray-300">Results</a>
-            <a onClick={closeMenu} href="#faq" className="block py-2 text-gray-300">FAQ</a>
+            <a onClick={closeMenu} href="#features" className="block py-2 text-ink-muted">Features</a>
+            <a onClick={closeMenu} href="#comparison" className="block py-2 text-ink-muted">Why LeadSync</a>
+            <a onClick={closeMenu} href="#pricing" className="block py-2 text-ink-muted">Pricing</a>
+            <a onClick={closeMenu} href="#results" className="block py-2 text-ink-muted">Results</a>
+            <a onClick={closeMenu} href="#faq" className="block py-2 text-ink-muted">FAQ</a>
             <a
               href="https://app.goleadsyncs.com/"
               className="block w-full px-6 py-2 bg-gradient-primary rounded-[9px] shadow-glow-primary font-semibold mt-2 text-center"
@@ -100,12 +103,12 @@ function Hero() {
         {/* Stats Bar */}
         <div className="flex justify-center gap-8 mb-12 text-sm">
           <div>
-            <div className="text-2xl font-bold text-white">2,500,000+</div>
-            <div className="text-gray-400">Leads Handled</div>
+            <div className="text-2xl font-extrabold text-white">2,500,000+</div>
+            <div className="text-ink-subtle">Leads Handled</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-white">350,000+</div>
-            <div className="text-gray-400">Leads Converted</div>
+            <div className="text-2xl font-extrabold text-white">350,000+</div>
+            <div className="text-ink-subtle">Leads Converted</div>
           </div>
         </div>
 
@@ -114,7 +117,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 text-white leading-tight">
             The #1 AI Lead Manager for
           </h1>
           <div className="h-20 mb-8">
@@ -123,13 +126,13 @@ function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent"
+              className="text-5xl md:text-7xl font-extrabold bg-gradient-primary bg-clip-text text-transparent"
             >
               {roles[currentRole]}
             </motion.h2>
           </div>
 
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-ink-muted mb-8 max-w-2xl mx-auto">
             Qualify instantly, fill your calendar, close more clients & never chase leads again.
           </p>
 
@@ -140,22 +143,22 @@ function Hero() {
             Get My Lead-Qualifying Agent
           </a>
           
-          <p className="text-gray-400 mt-4">14 days free, then plans start at $97 / month</p>
-          <p className="text-gray-500 mt-2 text-sm">Takes 2 minutes &bull; No credit card &bull; Cancel anytime before day 14</p>
+          <p className="text-ink-subtle mt-4">14 days free, then plans start at $97 / month</p>
+          <p className="text-ink-subtle mt-2 text-sm">Takes 2 minutes &bull; No credit card &bull; Cancel anytime before day 14</p>
 
           {/* Trust Badges */}
           <div className="mt-16">
-            <p className="text-gray-400 mb-6">Trusted by 8,000+ companies worldwide</p>
-            <div className="flex justify-center gap-4 items-center flex-wrap">
+            <p className="text-ink-subtle mb-6 text-sm font-medium uppercase tracking-[0.05em]">Trusted by 8,000+ companies worldwide</p>
+            <div className="flex justify-center gap-3 items-center flex-wrap">
               {['Agencies', 'Coaches', 'SaaS', 'Real Estate', 'Home Services'].map((label) => (
-                <div key={label} className="px-4 py-2 rounded-full bg-white/5 text-gray-300 text-sm border border-white/10">
+                <div key={label} className="px-4 py-2 rounded-full text-sm font-medium" style={{ background: 'rgba(124,58,237,0.10)', border: '1px solid rgba(124,58,237,0.22)', color: '#b3c0d9' }}>
                   {label}
                 </div>
               ))}
             </div>
-            <div className="flex justify-center gap-4 items-center flex-wrap mt-6 opacity-60">
+            <div className="flex justify-center gap-3 items-center flex-wrap mt-5 opacity-55">
               {['Client One', 'Client Two', 'Client Three', 'Client Four', 'Client Five'].map((label) => (
-                <div key={label} className="px-6 py-3 rounded-[9px] bg-white/5 text-gray-400 text-sm border border-white/10">
+                <div key={label} className="px-6 py-3 rounded-[9px] text-sm" style={{ background: 'rgba(15,23,42,0.50)', border: '1px solid rgba(148,163,184,0.14)', color: '#8190ad' }}>
                   {label}
                 </div>
               ))}
@@ -187,13 +190,13 @@ function HowItWorks() {
   return (
     <section className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">How LeadSync Works</h2>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10">How LeadSync Works</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step, index) => (
             <div key={step.title} className="glass-effect rounded-[14px] p-6">
-              <div className="text-sm text-gray-400 mb-2">Step {index + 1}</div>
+              <div className="text-[11px] font-bold uppercase tracking-[0.05em] text-ink-subtle mb-2">Step {index + 1}</div>
               <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-              <p className="text-gray-400">{step.description}</p>
+              <p className="text-ink-subtle">{step.description}</p>
             </div>
           ))}
         </div>
@@ -213,10 +216,10 @@ function Comparison() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
             Outperforms Traditional Solutions
           </h2>
-          <p className="text-xl text-gray-400">We will:</p>
+          <p className="text-xl text-ink-subtle">We will:</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -228,16 +231,16 @@ function Comparison() {
             className="glass-effect rounded-[14px] p-8"
           >
             <div className="text-6xl mb-4">01.</div>
-            <h3 className="text-2xl font-bold mb-6">Increase conversions</h3>
+            <h3 className="text-2xl font-extrabold mb-6">Increase conversions</h3>
             
             <div className="space-y-4">
               <div>
-                <div className="text-gray-400 text-sm mb-2">Industry average:</div>
+                <div className="text-ink-subtle text-sm mb-2">Industry average:</div>
                 <div className="text-3xl font-bold text-red-400">2-5%</div>
               </div>
 
               <div>
-                <div className="text-gray-400 text-sm mb-2">LeadSync average:</div>
+                <div className="text-ink-subtle text-sm mb-2">LeadSync average:</div>
                 <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">35-55%</div>
               </div>
             </div>
@@ -252,16 +255,16 @@ function Comparison() {
             className="glass-effect rounded-[14px] p-8"
           >
             <div className="text-6xl mb-4">02.</div>
-            <h3 className="text-2xl font-bold mb-6">Reduce expenses</h3>
+            <h3 className="text-2xl font-extrabold mb-6">Reduce expenses</h3>
             
             <div className="space-y-4">
               <div>
-                <div className="text-gray-400 text-sm mb-2">Industry average:</div>
+                <div className="text-ink-subtle text-sm mb-2">Industry average:</div>
                 <div className="text-3xl font-bold text-red-400">$499/month</div>
               </div>
               
               <div>
-                <div className="text-gray-400 text-sm mb-2">LeadSync costs:</div>
+                <div className="text-ink-subtle text-sm mb-2">LeadSync costs:</div>
                 <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">From $97/month</div>
               </div>
             </div>
@@ -276,16 +279,16 @@ function Comparison() {
             className="glass-effect rounded-[14px] p-8"
           >
             <div className="text-6xl mb-4">03.</div>
-            <h3 className="text-2xl font-bold mb-6">Maximize capacity</h3>
+            <h3 className="text-2xl font-extrabold mb-6">Maximize capacity</h3>
             
             <div className="space-y-4">
               <div>
-                <div className="text-gray-400 text-sm mb-2">Per SDR:</div>
-                <div className="text-3xl font-bold text-gray-400">50-100 leads/day</div>
+                <div className="text-ink-subtle text-sm mb-2">Per SDR:</div>
+                <div className="text-3xl font-bold text-ink-subtle">50-100 leads/day</div>
               </div>
 
               <div>
-                <div className="text-gray-400 text-sm mb-2">LeadSync capacity:</div>
+                <div className="text-ink-subtle text-sm mb-2">LeadSync capacity:</div>
                 <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">Unlimited, 24/7</div>
               </div>
             </div>
@@ -322,66 +325,66 @@ function ROICalculator() {
           viewport={{ once: true }}
           className="glass-effect rounded-[20px] p-8 md:p-12"
         >
-          <h2 className="text-4xl font-bold text-center mb-12">Calculate Your ROI with LeadSync</h2>
+          <h2 className="text-4xl font-extrabold text-center mb-12">Calculate Your ROI with LeadSync</h2>
           
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
-              <label className="block text-gray-400 mb-2">Monthly Leads</label>
+              <label className="block text-ink-subtle mb-2 text-sm font-medium">Monthly Leads</label>
               <input
                 type="number"
                 value={leads}
                 onChange={(e) => setLeads(Number(e.target.value))}
-                className="w-full bg-white/5 border border-white/10 rounded-[9px] px-4 py-3 text-white"
+                className="ls-input"
               />
             </div>
-            
+
             <div>
-              <label className="block text-gray-400 mb-2">Average Deal Value</label>
+              <label className="block text-ink-subtle mb-2 text-sm font-medium">Average Deal Value</label>
               <input
                 type="number"
                 value={dealValue}
                 onChange={(e) => setDealValue(Number(e.target.value))}
-                className="w-full bg-white/5 border border-white/10 rounded-[9px] px-4 py-3 text-white"
+                className="ls-input"
               />
             </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center">
-              <div className="text-gray-400 mb-2">Annual Savings</div>
-              <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <div className="text-ink-subtle mb-2">Annual Savings</div>
+              <div className="text-4xl font-extrabold bg-gradient-primary bg-clip-text text-transparent">
                 ${annualSavings.toLocaleString('en-US')}
               </div>
-              <div className="text-sm text-gray-400 mt-1">saved per year</div>
+              <div className="text-sm text-ink-subtle mt-1">saved per year</div>
             </div>
             
             <div className="text-center">
-              <div className="text-gray-400 mb-2">Extra Bookings/Month</div>
-              <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <div className="text-ink-subtle mb-2">Extra Bookings/Month</div>
+              <div className="text-4xl font-extrabold bg-gradient-primary bg-clip-text text-transparent">
                 +{extraBookings}
               </div>
-              <div className="text-sm text-gray-400 mt-1">more bookings</div>
+              <div className="text-sm text-ink-subtle mt-1">more bookings</div>
             </div>
             
             <div className="text-center">
-              <div className="text-gray-400 mb-2">Additional Revenue/Month</div>
-              <div className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <div className="text-ink-subtle mb-2">Additional Revenue/Month</div>
+              <div className="text-4xl font-extrabold bg-gradient-primary bg-clip-text text-transparent">
                 ${extraRevenue.toLocaleString('en-US')}
               </div>
-              <div className="text-sm text-gray-400 mt-1">extra revenue</div>
+              <div className="text-sm text-ink-subtle mt-1">extra revenue</div>
             </div>
           </div>
 
           <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4">Ready to Save ${annualSavings.toLocaleString('en-US')}/year?</h3>
-            <p className="text-gray-400 mb-6">Start your 14-day free trial and see the results for yourself</p>
+            <h3 className="text-2xl font-extrabold mb-4">Ready to Save ${annualSavings.toLocaleString('en-US')}/year?</h3>
+            <p className="text-ink-subtle mb-6">Start your 14-day free trial and see the results for yourself</p>
             <a
               href={SIGNUP_URL}
               className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary rounded-[9px] shadow-glow-primary font-semibold hover:opacity-90 transition transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816]"
             >
               Get My Lead-Qualifying Agent
             </a>
-            <p className="text-gray-500 mt-3 text-sm">No credit card &bull; Cancel anytime before day 14</p>
+            <p className="text-ink-subtle mt-3 text-sm">No credit card &bull; Cancel anytime before day 14</p>
           </div>
         </motion.div>
       </div>
@@ -434,7 +437,7 @@ function Features() {
     },
     {
       icon: <Zap className="w-8 h-8" aria-hidden="true" />,
-      title: 'Website Co-Pilot',
+      title: 'LS Engine',
       description: 'Intelligent website scraping to understand your business and answer customer questions.',
       points: [
         'Automatic content analysis',
@@ -463,10 +466,10 @@ function Features() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
             Everything You Need to Close More Deals
           </h2>
-          <p className="text-xl text-gray-400">Powerful features that actually work</p>
+          <p className="text-xl text-ink-subtle">Powerful features that actually work</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -482,11 +485,11 @@ function Features() {
               <div className="bg-gradient-primary w-16 h-16 rounded-[9px] flex items-center justify-center mb-6">
                 {feature.icon}
               </div>
-              <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-gray-400 mb-6">{feature.description}</p>
+              <h3 className="text-2xl font-extrabold mb-3">{feature.title}</h3>
+              <p className="text-ink-subtle mb-6">{feature.description}</p>
               <ul className="space-y-2">
                 {feature.points.map((point, i) => (
-                  <li key={i} className="flex items-start gap-2 text-gray-300">
+                  <li key={i} className="flex items-start gap-2 text-ink-muted">
                     <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-hidden="true" />
                     {point}
                   </li>
@@ -526,7 +529,7 @@ function Testimonials() {
   return (
     <section id="results" className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16">What Our Clients Say</h2>
+        <h2 className="text-4xl font-extrabold text-center mb-16">What Our Clients Say</h2>
         
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
@@ -539,13 +542,18 @@ function Testimonials() {
               className="glass-effect rounded-[14px] p-8"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="text-4xl">{testimonial.image}</div>
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-extrabold text-white flex-shrink-0"
+                  style={{ background: 'linear-gradient(135deg, #7C3AED, #EC4899)', boxShadow: '0 4px 16px rgba(124,58,237,0.40)' }}
+                >
+                  {testimonial.image}
+                </div>
                 <div>
-                  <div className="font-bold">{testimonial.name}</div>
-                  <div className="text-sm text-gray-400">{testimonial.role}</div>
+                  <div className="font-extrabold text-[#eef2ff]">{testimonial.name}</div>
+                  <div className="text-sm text-ink-subtle">{testimonial.role}</div>
                 </div>
               </div>
-              <p className="text-gray-300">{testimonial.text}</p>
+              <p className="text-ink-muted">{testimonial.text}</p>
             </motion.div>
           ))}
         </div>
@@ -582,7 +590,7 @@ const PRICING_PLANS: PricingPlan[] = [
     features: [
       'Full Flow Editor',
       'Knowledge base training',
-      'AI Co-Pilot Builder',
+      'LS Engine Builder',
       'Test Playground',
       'Basic analytics',
       'GHL integration',
@@ -650,10 +658,10 @@ function Pricing() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-xl text-gray-400">Choose the plan that fits your business</p>
+          <p className="text-xl text-ink-subtle">Choose the plan that fits your business</p>
 
           {/* 30-day money-back guarantee */}
           <div className="flex items-center justify-center gap-2 mt-6">
@@ -671,7 +679,7 @@ function Pricing() {
 
         {/* Billing toggle */}
         <div className="flex items-center justify-center gap-4 mb-12">
-          <span className={`text-sm font-medium transition ${!annual ? 'text-white' : 'text-gray-400'}`}>
+          <span className={`text-sm font-medium transition ${!annual ? 'text-white' : 'text-ink-subtle'}`}>
             Monthly
           </span>
           <button
@@ -691,7 +699,7 @@ function Pricing() {
             />
           </button>
           <div className="flex items-center gap-2">
-            <span className={`text-sm font-medium transition ${annual ? 'text-white' : 'text-gray-400'}`}>
+            <span className={`text-sm font-medium transition ${annual ? 'text-white' : 'text-ink-subtle'}`}>
               Annual
             </span>
             <span
@@ -733,9 +741,9 @@ function Pricing() {
                 {/* Price */}
                 <div className="mb-1">
                   <span className="text-[26px] font-bold text-white">${price}</span>
-                  <span className="text-sm text-gray-400 ml-1">/mo</span>
+                  <span className="text-sm text-ink-subtle ml-1">/mo</span>
                 </div>
-                <div className="text-[12px] text-gray-500 mb-1">{formatZAR(price)}/mo at R{ZAR_RATE.toFixed(2)}/USD</div>
+                <div className="text-[12px] text-ink-subtle mb-1">{formatZAR(price)}/mo at R{ZAR_RATE.toFixed(2)}/USD</div>
                 {annual ? (
                   <div className="text-[11px] mb-6" style={{ color: '#c084fc' }}>
                     Billed ${yearlyTotal.toLocaleString()}/yr, save ${yearlySavings.toLocaleString()}/yr
@@ -748,10 +756,10 @@ function Pricing() {
 
                 {/* Limits */}
                 <div className="mb-5">
-                  <div className="text-xs uppercase tracking-wider text-gray-500 mb-3 font-semibold">Limits</div>
+                  <div className="text-[11px] font-bold uppercase tracking-[0.05em] text-ink-subtle mb-3">Limits</div>
                   <ul className="space-y-2">
                     {plan.limits.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-gray-200">
+                      <li key={item} className="flex items-start gap-2 text-sm text-ink-muted">
                         <span aria-hidden="true" className="flex-shrink-0 mt-0.5 text-primary">&#10022;</span>
                         <span>{item}</span>
                       </li>
@@ -764,10 +772,10 @@ function Pricing() {
 
                 {/* Features */}
                 <div className="mb-6">
-                  <div className="text-xs uppercase tracking-wider text-gray-500 mb-3 font-semibold">Features</div>
+                  <div className="text-[11px] font-bold uppercase tracking-[0.05em] text-ink-subtle mb-3">Features</div>
                   <ul className="space-y-2">
                     {plan.features.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-gray-200">
+                      <li key={item} className="flex items-start gap-2 text-sm text-ink-muted">
                         <span aria-hidden="true" className="flex-shrink-0 mt-0.5 text-primary">&#10022;</span>
                         <span>{item}</span>
                       </li>
@@ -784,7 +792,7 @@ function Pricing() {
                     className={`block w-full px-6 py-3 rounded-[9px] font-semibold transition text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050816] ${
                       plan.ctaStyle === 'primary'
                         ? 'bg-gradient-primary shadow-glow-primary hover:opacity-90'
-                        : 'bg-white/10 hover:bg-white/20 border border-hairline'
+                        : 'bg-[rgba(15,23,42,0.50)] hover:bg-[rgba(15,23,42,0.70)] border border-[rgba(148,163,184,0.16)] hover:border-[rgba(148,163,184,0.28)] text-ink-muted hover:text-[#eef2ff]'
                     }`}
                   >
                     {plan.cta}
@@ -809,7 +817,7 @@ function Pricing() {
           })}
         </div>
 
-        <p className="text-center text-sm text-gray-400 mt-10">
+        <p className="text-center text-sm text-ink-subtle mt-10">
           {annual
             ? 'Annual plans billed once per year. Best value, save ~17%. 14-day free trial. Cancel anytime before day 14.'
             : 'Monthly billing, cancel anytime. 14-day free trial, no credit card required. Prices in USD; ZAR shown for reference at R18.20/USD.'}
@@ -826,7 +834,7 @@ function FAQ() {
   const faqs = [
     {
       question: 'What makes LeadSync different from other tools?',
-      answer: 'LeadSync combines Claude AI for human-like conversations with our AI Strategy Builder, which automatically creates and manages your automation workflows. Our Website Co-Pilot learns your business instantly without manual setup, and pricing starts at just $97/month, a fraction of what most comparable platforms charge.'
+      answer: 'LeadSync combines Claude AI for human-like conversations with our AI Strategy Builder, which automatically creates and manages your automation workflows. Our LS Engine learns your business instantly without manual setup, and pricing starts at just $97/month, a fraction of what most comparable platforms charge.'
     },
     {
       question: 'How fast can I set up LeadSync?',
@@ -867,7 +875,7 @@ function FAQ() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16">Questions? We've Got Answers.</h2>
+        <h2 className="text-4xl font-extrabold text-center mb-16">Questions? We've Got Answers.</h2>
         
         <div className="space-y-4">
           {faqs.map((faq, index) => (
@@ -892,7 +900,7 @@ function FAQ() {
                 />
               </button>
               {openIndex === index && (
-                <div className="px-6 pb-4 text-gray-300">
+                <div className="px-6 pb-4 text-ink-muted">
                   {faq.answer}
                 </div>
               )}
@@ -914,16 +922,16 @@ function CTA() {
         viewport={{ once: true }}
         className="max-w-4xl mx-auto text-center"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
           Ready to Transform Your Lead Management?
         </h2>
-        <p className="text-xl text-gray-400 mb-8">
+        <p className="text-xl text-ink-subtle mb-8">
           Join 8,000+ companies using LeadSync to close more deals
         </p>
         <button className="px-8 py-4 bg-gradient-primary rounded-[9px] shadow-glow-primary text-lg font-semibold hover:opacity-90 transition transform hover:scale-105">
           Start Your Free 14-Day Trial
         </button>
-        <p className="text-gray-400 mt-4">No credit card required &bull; Cancel anytime before day 14</p>
+        <p className="text-ink-subtle mt-4">No credit card required &bull; Cancel anytime before day 14</p>
       </motion.div>
     </section>
   );
@@ -936,17 +944,22 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
-              LeadSync
+            <div className="flex items-center gap-2 mb-4">
+              <div className="ls-logo">
+                <Zap className="w-[16px] h-[16px] text-white" aria-hidden="true" />
+              </div>
+              <span className="text-xl font-extrabold bg-gradient-primary bg-clip-text text-transparent tracking-tight">
+                LeadSync
+              </span>
             </div>
-            <p className="text-gray-400 text-sm">
+            <p className="text-ink-subtle text-sm">
               The most advanced AI-powered lead management platform for modern businesses.
             </p>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4">Product</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
+            <ul className="space-y-2 text-ink-subtle text-sm">
               <li><a href="#features" className="hover:text-white transition">Features</a></li>
               <li><a href="#pricing" className="hover:text-white transition">Pricing</a></li>
               <li><a href="#results" className="hover:text-white transition">Results</a></li>
@@ -956,7 +969,7 @@ function Footer() {
           
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
+            <ul className="space-y-2 text-ink-subtle text-sm">
               <li><a href="https://www.linkedin.com/company/getleadsync" className="hover:text-white transition">LinkedIn</a></li>
               <li><a href="mailto:hello@goleadsyncs.com" className="hover:text-white transition">Contact</a></li>
             </ul>
@@ -964,7 +977,7 @@ function Footer() {
           
           <div>
             <h4 className="font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
+            <ul className="space-y-2 text-ink-subtle text-sm">
               <li>Privacy</li>
               <li>Terms</li>
               <li>Security</li>
@@ -972,7 +985,7 @@ function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-hairline pt-8 text-center text-gray-400 text-sm">
+        <div className="border-t border-hairline pt-8 text-center text-ink-subtle text-sm">
           <p>&copy; 2026 LeadSync. All rights reserved.</p>
         </div>
       </div>
