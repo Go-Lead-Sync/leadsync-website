@@ -968,9 +968,9 @@ function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-ink-subtle text-sm">
-              <li>Privacy</li>
-              <li>Terms</li>
-              <li>Security</li>
+              <li><a href="/privacy" className="hover:text-white transition">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-white transition">Terms of Service</a></li>
+              <li><a href="/refund" className="hover:text-white transition">Refund Policy</a></li>
             </ul>
           </div>
         </div>
