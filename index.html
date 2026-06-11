@@ -1359,8 +1359,10 @@ form.addEventListener('submit',async e=>{
   e.preventDefault();
   ferr.classList.remove('show');
   sbtn.disabled=true;sbtn.textContent='Sending...';
+  const goApp=()=>{form.style.display='none';fSucc.classList.add('show');setTimeout(()=>{window.location.href='https://app.goleadsyncs.com/register';},2500);};
+  let r=null;
   try{
-    const r=await fetch('/api/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+    r=await fetch('/api/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
       firstName:document.getElementById('fN').value.trim(),
       lastName:document.getElementById('lN').value.trim(),
       email:document.getElementById('em').value.trim(),
@@ -1368,10 +1370,13 @@ form.addEventListener('submit',async e=>{
       businessType:btSel.value,
       businessTypeOther:boInp.value.trim()
     })});
+  }catch(err){}
+  // Static hosting has no signup API — send the visitor straight to registration
+  if(!r||r.status===404||r.status===405){goApp();return;}
+  try{
     const j=await r.json();
     if(!r.ok)throw new Error(j.error||'Something went wrong.');
-    form.style.display='none';fSucc.classList.add('show');
-    setTimeout(()=>{window.location.href='https://app.goleadsyncs.com/register';},2500);
+    goApp();
   }catch(err){
     ferr.textContent=err.message;ferr.classList.add('show');
     sbtn.disabled=false;sbtn.textContent='Start My Free Trial →';
