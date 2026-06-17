@@ -26,6 +26,7 @@ jobs:
         run: |
           mkdir out
           cp index.html CNAME *.png *.webp out/
+          cp -r terms privacy refund out/
           touch out/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
