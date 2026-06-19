@@ -602,7 +602,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
     <div class="stats-grid">
       <div class="stat rev"><span class="stat-num" data-static="true">Speed to Lead</span><span class="stat-label">Never let a lead get cold</span></div>
       <div class="stat rev d1"><span class="stat-num" data-static="true">Human-like Reply</span><span class="stat-label">Sounds just like you</span></div>
-      <div class="stat rev d2"><span class="stat-num" data-target="4.8" data-suffix="x" data-float="1">0</span><span class="stat-label">More appointments booked</span></div>
+      <div class="stat rev d2"><span class="stat-num" data-static="true">Instant Response</span><span class="stat-label">Under 3 seconds</span></div>
       <div class="stat rev d3"><span class="stat-num" data-static="24/7">24/7</span><span class="stat-label">Always on, zero downtime</span></div>
     </div>
   </div>
@@ -918,7 +918,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
           <tr><td>24/7 Instant Response</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cp">Basic</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td></tr>
           <tr><td>Real-Time CRM Sync</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cp">Manual entry</span></td><td><span class="cp">Limited</span></td></tr>
           <tr><td>Analytics</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cn">✗</span></td><td><span class="cp">Basic only</span></td></tr>
-          <tr><td>Concierge Setup Option</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td><td><span class="cp">Limited</span></td></tr>
+          <tr><td>Concierge Onboarding</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td><td><span class="cp">Limited</span></td></tr>
           <tr><td>Human-like Approach</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cp">Scripted</span></td><td><span class="cn">✗</span></td></tr>
           <tr><td>14-Day Free Trial</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td></tr>
           <tr class="comp-cta-row"><td></td><td class="td-ls"><button class="comp-cta-btn" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get Started Free →</button></td><td></td><td></td><td></td></tr>
@@ -1027,12 +1027,6 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
       <h2 style="color:#fff">Start Free.<br><span class="grad-text">Scale Fast.</span></h2>
       <p>14-day free trial on all plans. No credit card. No commitment.</p>
     </div>
-    <div class="ptog rev">
-      <div class="tog-wrap">
-        <button class="tb on" id="tbM">Monthly</button>
-        <button class="tb" id="tbA">Annual <span class="save-chip">SAVE 17%</span></button>
-      </div>
-    </div>
     <div class="p-grid">
       <div class="pc rev">
         <div class="pname">Starter</div>
@@ -1076,8 +1070,8 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Unlimited users</div>
         <div class="pdiv"></div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Everything in Pro</div>
-        <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg><strong style="color:#f472b6">Managed Onboarding:</strong>&nbsp;1 AI Agent built by our team</div>
-        <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Includes guided agent setup by our team</div>
+        <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg><strong style="color:#f472b6">Concierge Setup:</strong>&nbsp;1 AI Agent configured by our team</div>
+        <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Guided onboarding included</div>
         <button class="pbtn pbtn-out" onclick="window.open('#','_blank')">Book a Call</button>
       </div>
     </div>
@@ -1114,7 +1108,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
       </div>
       <div class="faq-item">
         <button class="faq-q">What is the Concierge Setup?<svg class="faq-chev" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">Available on the Launch Sync plan for a one-time $997 setup fee. Our team personally builds and launches your first AI agent -trained on your business, tested, and ready to convert leads from day one. You don't lift a finger.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Available on the Launch Sync Unlimited plan. Our team personally configures your first AI agent - trained on your business, tested, and ready to convert leads from day one. Included as part of your subscription.</div></div>
       </div>
     </div>
   </div>
@@ -1322,22 +1316,6 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 
-// ── PRICING TOGGLE ────────────────────────────
-const prices={m:{s:89,p:289,l:449},a:{s:74,p:241,l:374}};
-function setP(t){
-  const pr=prices[t];
-  document.getElementById('ps').textContent=pr.s;
-  document.getElementById('pp').textContent=pr.p;
-  document.getElementById('pl').textContent=pr.l;
-  const a=t==='a';
-  document.getElementById('bs').textContent=a?`Billed $${pr.s*12}/yr`:' ';
-  document.getElementById('bp').textContent=a?`Billed $${pr.p*12}/yr`:' ';
-  document.getElementById('bl').textContent=a?`Billed $${pr.l*12}/yr`:' ';
-  document.getElementById('tbM').classList.toggle('on',t==='m');
-  document.getElementById('tbA').classList.toggle('on',t==='a');
-}
-document.getElementById('tbM').addEventListener('click',()=>setP('m'));
-document.getElementById('tbA').addEventListener('click',()=>setP('a'));
 
 // ── BUSINESS TYPE OTHER ───────────────────────
 const btSel=document.getElementById('bt'),othWrap=document.getElementById('othWrap'),boInp=document.getElementById('bo');
