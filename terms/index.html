@@ -1,266 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service | LeadSync</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#050816;color:#e2e8f0;line-height:1.7}
-    header{padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:12px}
-    header a{color:#6366f1;text-decoration:none;font-weight:700;font-size:18px}
-    .container{max-width:800px;margin:0 auto;padding:48px 24px 80px}
-    h1{font-size:2rem;font-weight:700;margin-bottom:8px;color:#fff}
-    .updated{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:40px}
-    h2{font-size:1.2rem;font-weight:700;color:#a5b4fc;margin:36px 0 12px}
-    h3{font-size:1rem;font-weight:600;color:#cbd5e1;margin:20px 0 8px}
-    p{margin-bottom:12px;color:#cbd5e1}
-    ul{padding-left:20px;margin-bottom:12px;color:#cbd5e1}
-    li{margin-bottom:6px}
-    a{color:#6366f1}
-    footer{border-top:1px solid rgba(255,255,255,0.08);padding:24px;text-align:center}
-    footer p{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:10px}
-    footer a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;margin:0 10px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Terms of Service | LeadSync</title>
+<link rel="icon" href="/favicon.png">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:#060012;color:#fff;line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 900px 700px at 5% -5%,rgba(109,40,217,.22),transparent 65%),
+    radial-gradient(ellipse 700px 600px at 100% 105%,rgba(219,39,119,.12),transparent 65%),
+    radial-gradient(ellipse 500px 400px at 75% 20%,rgba(139,92,246,.1),transparent 65%);
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+.nav{padding:18px 0;border-bottom:1px solid rgba(139,92,246,.15);position:sticky;top:0;background:rgba(6,0,18,.92);backdrop-filter:blur(20px);z-index:100}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo img{width:28px;height:28px;border-radius:7px}
+.nav-logo span{font-size:16px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.nav-back{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .2s;padding:7px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.1)}
+.nav-back:hover{color:#fff;border-color:rgba(255,255,255,.25)}
+.header{padding:56px 0 36px}
+.label{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8B5CF6;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25);border-radius:20px;padding:5px 14px;margin-bottom:18px}
+.header h1{font-size:clamp(2rem,5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px}
+.header-meta{font-size:13px;color:rgba(255,255,255,.4);display:flex;gap:16px;flex-wrap:wrap}
+.toc{background:rgba(18,6,36,.7);border:1px solid rgba(139,92,246,.2);border-radius:14px;padding:24px 28px;margin-bottom:40px;backdrop-filter:blur(10px)}
+.toc h3{font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.toc ol{margin-left:18px;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
+@media(max-width:600px){.toc ol{grid-template-columns:1fr}}
+.toc li{font-size:13px}
+.toc a{color:#a78bfa;text-decoration:none;transition:color .2s}
+.toc a:hover{color:#fff;text-decoration:underline}
+.sec{margin-bottom:28px;padding:28px 32px;background:rgba(14,5,32,.7);border:1px solid rgba(139,92,246,.13);border-radius:16px;backdrop-filter:blur(12px);transition:border-color .2s}
+.sec:hover{border-color:rgba(139,92,246,.28)}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(139,92,246,.12)}
+.sec-num{font-size:10px;font-weight:700;color:#8B5CF6;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.25);border-radius:20px;padding:3px 10px;letter-spacing:.05em;white-space:nowrap;flex-shrink:0}
+.sec-title{font-size:1.05rem;font-weight:700;color:#fff}
+.sec h3{font-size:.9rem;font-weight:700;color:rgba(255,255,255,.9);margin:18px 0 8px}
+.sec p{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.78;margin-bottom:10px}
+.sec ul,.sec ol{margin-left:20px;margin-bottom:10px}
+.sec li{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.78;margin-bottom:6px}
+.sec a{color:#a78bfa;text-decoration:none}
+.sec a:hover{text-decoration:underline}
+.pricing-table{width:100%;border-collapse:collapse;margin:14px 0}
+.pricing-table th{text-align:left;font-size:11px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.07em;padding:9px 12px;border-bottom:1px solid rgba(139,92,246,.2)}
+.pricing-table td{padding:11px 12px;font-size:13.5px;color:rgba(255,255,255,.62);border-bottom:1px solid rgba(139,92,246,.08)}
+.pricing-table tbody tr:last-child td{border-bottom:none}
+.pricing-table td:first-child{font-weight:600;color:rgba(255,255,255,.85)}
+.pricing-amount{color:#a78bfa;font-weight:700}
+.info-box{background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:14px 18px;margin:10px 0 12px;font-size:13.5px;color:rgba(255,255,255,.68);line-height:1.75}
+.info-box strong{color:#fff}
+footer{padding:32px 0;border-top:1px solid rgba(139,92,246,.15);position:relative;z-index:1;margin-top:20px}
+.foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.foot-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.foot-brand img{width:22px;height:22px;border-radius:5px}
+.foot-brand span{font-size:14px;font-weight:800;color:#fff}
+.foot-links{display:flex;gap:4px;flex-wrap:wrap}
+.foot-links a{font-size:12px;color:rgba(255,255,255,.38);text-decoration:none;padding:5px 9px;border-radius:6px;transition:all .2s}
+.foot-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.foot-copy{font-size:11px;color:rgba(255,255,255,.22)}
+@media(max-width:600px){.sec{padding:20px 18px}.header{padding:40px 0 28px}}
+</style>
 </head>
 <body>
-<header>
-  <a href="https://goleadsyncs.com">&#8592; LeadSync</a>
-</header>
-<div class="container">
-  <h1>Terms of Service</h1>
-  <p class="updated">Last Updated: January 28, 2026</p>
 
-  <h2>1. Agreement to Terms</h2>
-  <p>By accessing or using LeadSync ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service.</p>
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-in">
+      <a href="/" class="nav-logo"><img src="/favicon.png" alt="LeadSync"><span>LeadSync</span></a>
+      <a href="/" class="nav-back">← Home</a>
+    </div>
+  </div>
+</nav>
 
-  <h2>2. Description of Service</h2>
-  <p>LeadSync is an AI-powered lead engagement platform that helps businesses:</p>
-  <ul>
-    <li>Automate lead conversations using artificial intelligence</li>
-    <li>Build custom automation workflows</li>
-    <li>Integrate with GoHighLevel CRM</li>
-    <li>Qualify and nurture leads automatically</li>
-    <li>Track analytics and performance metrics</li>
-  </ul>
+<div class="wrap">
+  <div class="header">
+    <div class="label">Legal</div>
+    <h1>Terms of Service</h1>
+    <div class="header-meta">
+      <span>Last updated: June 18, 2026</span>
+      <span>Effective: June 18, 2026</span>
+    </div>
+  </div>
 
-  <h2>3. User Accounts</h2>
-  <h3>3.1 Account Creation</h3>
-  <p>To use the Service, you must:</p>
-  <ul>
-    <li>Be at least 18 years old</li>
-    <li>Provide accurate and complete registration information</li>
-    <li>Maintain the security of your account credentials</li>
-    <li>Accept responsibility for all activities under your account</li>
-  </ul>
+  <div class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#s1">Agreement to Terms</a></li>
+      <li><a href="#s2">Description of Service</a></li>
+      <li><a href="#s3">Eligibility</a></li>
+      <li><a href="#s4">Subscription &amp; Billing</a></li>
+      <li><a href="#s5">Cancellation</a></li>
+      <li><a href="#s6">Acceptable Use</a></li>
+      <li><a href="#s7">Intellectual Property</a></li>
+      <li><a href="#s8">Third-Party Services</a></li>
+      <li><a href="#s9">Disclaimers</a></li>
+      <li><a href="#s10">Limitation of Liability</a></li>
+      <li><a href="#s11">Indemnification</a></li>
+      <li><a href="#s12">Support</a></li>
+      <li><a href="#s13">Governing Law</a></li>
+      <li><a href="#s14">Amendments</a></li>
+      <li><a href="#s15">Contact</a></li>
+    </ol>
+  </div>
 
-  <h3>3.2 Account Responsibilities</h3>
-  <p>You are responsible for:</p>
-  <ul>
-    <li>Keeping your password secure and confidential</li>
-    <li>Notifying us immediately of any unauthorized access</li>
-    <li>Ensuring your account information remains accurate</li>
-    <li>All content and activity in your account</li>
-  </ul>
+  <div class="sec" id="s1">
+    <div class="sec-head"><span class="sec-num">SECTION 1</span><span class="sec-title">Agreement to Terms</span></div>
+    <p>By accessing or using the LeadSync platform at <a href="https://goleadsyncs.com">goleadsyncs.com</a> or any associated application (the "Service"), you agree to be bound by these Terms of Service ("Terms"). Please read them carefully.</p>
+    <p>If you are using the Service on behalf of a company or organisation, you represent that you have the authority to bind that entity to these Terms.</p>
+    <p>If you do not agree to these Terms, you must not access or use the Service.</p>
+  </div>
 
-  <h3>3.3 Account Termination</h3>
-  <p>We may suspend or terminate your account if you:</p>
-  <ul>
-    <li>Violate these Terms</li>
-    <li>Engage in fraudulent or illegal activities</li>
-    <li>Abuse the Service or harm other users</li>
-    <li>Fail to pay fees when due</li>
-  </ul>
+  <div class="sec" id="s2">
+    <div class="sec-head"><span class="sec-num">SECTION 2</span><span class="sec-title">Description of Service</span></div>
+    <p>LeadSync is an AI-powered lead management and automation platform designed to integrate with GoHighLevel CRM and related tools. The Service includes, but is not limited to:</p>
+    <ul>
+      <li>AI conversation agents for lead qualification and automated follow-up</li>
+      <li>A visual Flow Editor for building automated conversation workflows</li>
+      <li>Knowledge base training and management</li>
+      <li>Strategy Doctor — AI diagnostics for agent performance</li>
+      <li>Smart analytics and conversion tracking</li>
+      <li>Automatic appointment booking via Google Calendar and GoHighLevel</li>
+      <li>Integrations with Slack, Twilio, ElevenLabs, Meta, and other platforms</li>
+    </ul>
+    <p>LeadSync reserves the right to modify, update, or discontinue any feature of the Service with reasonable notice to subscribers.</p>
+  </div>
 
-  <h2>4. Subscription and Payments</h2>
-  <h3>4.1 Pricing Plans</h3>
-  <p>LeadSync offers the following plans, each starting with a 14-day free trial:</p>
-  <ul>
-    <li><strong>Starter:</strong> $89/month (or $888/year)</li>
-    <li><strong>Pro:</strong> $289/month (or $2,892/year)</li>
-    <li><strong>Launch Sync Unlimited:</strong> $449/month (or $4,488/year)</li>
-  </ul>
+  <div class="sec" id="s3">
+    <div class="sec-head"><span class="sec-num">SECTION 3</span><span class="sec-title">Eligibility</span></div>
+    <p>To use LeadSync, you must:</p>
+    <ul>
+      <li>Be at least 18 years of age</li>
+      <li>Have the legal capacity to enter into a binding agreement</li>
+      <li>Not be prohibited from using the Service under applicable law</li>
+      <li>Provide accurate and complete registration information</li>
+    </ul>
+    <p>By creating an account, you confirm that all information you submit is truthful, accurate, and current.</p>
+  </div>
 
-  <h3>4.2 Billing</h3>
-  <ul>
-    <li>Subscriptions are billed monthly or annually in advance</li>
-    <li>All fees are in USD</li>
-    <li>Payments are processed securely by Paddle.com, our merchant of record. Paddle handles checkout, billing, and payment data</li>
-    <li>Fees are non-refundable except as required by law or our Refund Policy</li>
-  </ul>
+  <div class="sec" id="s4">
+    <div class="sec-head"><span class="sec-num">SECTION 4</span><span class="sec-title">Subscription Plans and Billing</span></div>
 
-  <h3>4.3 Auto-Renewal</h3>
-  <p>Subscriptions automatically renew unless cancelled before the renewal date. You will be charged the then-current rate for your plan.</p>
+    <h3>4.1 Pricing Plans</h3>
+    <p>LeadSync offers the following subscription plans, billed on a monthly basis:</p>
+    <table class="pricing-table">
+      <thead>
+        <tr><th>Plan</th><th>Monthly Price</th><th>Best For</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Starter</td><td class="pricing-amount">$89/month</td><td>Small businesses, 1 sub-account</td></tr>
+        <tr><td>Pro</td><td class="pricing-amount">$289/month</td><td>Growing agencies, up to 5 sub-accounts</td></tr>
+        <tr><td>Launch Sync Unlimited</td><td class="pricing-amount">$449/month</td><td>Agencies with unlimited sub-accounts</td></tr>
+      </tbody>
+    </table>
+    <p>All prices are in US dollars. Full plan features and limits are described on our pricing page at <a href="https://goleadsyncs.com/#pricing">goleadsyncs.com/#pricing</a>.</p>
 
-  <h3>4.4 Cancellation</h3>
-  <p>You may cancel your subscription at any time. Cancellations take effect at the end of the current billing period. No refunds for partial months.</p>
+    <h3>4.2 Payment Processing</h3>
+    <p>Payments are processed securely by Creem.io, our merchant of record. Creem handles checkout, billing, and payment data. LeadSync does not store or have direct access to your payment card details.</p>
+    <p>By completing a purchase, you also agree to Creem.io's terms of service and privacy policy as they may apply to your transaction.</p>
 
-  <h3>4.5 Price Changes</h3>
-  <p>We may change our pricing with 30 days' notice. Changes apply to renewals after the notice period. Continued use constitutes acceptance.</p>
+    <h3>4.3 Free Trial</h3>
+    <p>All new accounts receive a 14-day free trial with full access to the selected plan. No credit card is required to begin the trial. At the end of the trial period, you will be prompted to select a paid plan to continue. If no plan is selected, your AI agents will be paused and dashboard access restricted. Account data is retained for 30 days before permanent deletion.</p>
 
-  <h3>4.6 Refund Policy</h3>
-  <p>We offer a 14-day money-back guarantee on your first subscription payment. Contact support@goleadsyncs.com to request a refund. See our full <a href="/refund">Refund Policy</a> for details.</p>
+    <h3>4.4 Auto-Renewal</h3>
+    <p>Paid subscriptions renew automatically at the end of each billing cycle. You authorise LeadSync (via Creem.io) to charge your payment method on a recurring basis until you cancel. You may cancel at any time from your account billing settings.</p>
+  </div>
 
-  <h2>5. Acceptable Use</h2>
-  <h3>5.1 You Agree NOT To:</h3>
-  <ul>
-    <li>Use the Service for any illegal or unauthorized purpose</li>
-    <li>Violate any laws or regulations</li>
-    <li>Send spam, unsolicited messages, or phishing attempts</li>
-    <li>Harass, abuse, or harm other users</li>
-    <li>Impersonate any person or entity</li>
-    <li>Interfere with or disrupt the Service</li>
-    <li>Attempt to gain unauthorized access to systems</li>
-    <li>Reverse engineer or decompile the Service</li>
-    <li>Use automated tools to access the Service (except our API)</li>
-    <li>Resell or redistribute the Service without authorization</li>
-  </ul>
+  <div class="sec" id="s5">
+    <div class="sec-head"><span class="sec-num">SECTION 5</span><span class="sec-title">Cancellation</span></div>
+    <p>You may cancel your subscription at any time from your account billing settings. Cancellation takes effect at the end of the current billing period, and you will retain full access to the Service until that date.</p>
+    <p>LeadSync does not provide pro-rated refunds for unused portions of a billing period except as described in our <a href="/refund">Refund Policy</a>.</p>
+  </div>
 
-  <h3>5.2 Content Restrictions</h3>
-  <p>Your AI strategies and conversations must NOT contain:</p>
-  <ul>
-    <li>Illegal, fraudulent, or deceptive content</li>
-    <li>Content that violates third-party rights</li>
-    <li>Malware, viruses, or harmful code</li>
-    <li>Excessive profanity or offensive material</li>
-    <li>Content promoting illegal activities</li>
-  </ul>
+  <div class="sec" id="s6">
+    <div class="sec-head"><span class="sec-num">SECTION 6</span><span class="sec-title">Acceptable Use</span></div>
+    <p>You agree to use LeadSync only for lawful purposes and in accordance with these Terms. You must not:</p>
+    <ul>
+      <li>Violate any applicable local, national, or international law or regulation</li>
+      <li>Use the Service to send spam, unsolicited bulk messages, or harassing communications</li>
+      <li>Impersonate any person or entity, or misrepresent your identity</li>
+      <li>Attempt to reverse-engineer, decompile, or extract source code from the Service</li>
+      <li>Use automated tools to scrape or extract data from the Service without authorisation</li>
+      <li>Share account credentials with unauthorised third parties</li>
+      <li>Transmit or store malicious code, viruses, or harmful content through the Service</li>
+      <li>Interfere with or disrupt the integrity or performance of the Service or its infrastructure</li>
+    </ul>
+    <p>LeadSync reserves the right to suspend or terminate any account found to be in violation of these terms, without prior notice and without refund.</p>
+  </div>
 
-  <h2>6. Intellectual Property</h2>
-  <h3>6.1 Our Property</h3>
-  <p>LeadSync owns all rights to:</p>
-  <ul>
-    <li>The Service platform, code, and infrastructure</li>
-    <li>LeadSync branding, logos, and trademarks</li>
-    <li>Documentation and training materials</li>
-    <li>Aggregated, anonymized usage data</li>
-  </ul>
+  <div class="sec" id="s7">
+    <div class="sec-head"><span class="sec-num">SECTION 7</span><span class="sec-title">Intellectual Property Rights</span></div>
+    <p>The LeadSync platform, including all software, algorithms, visual design, documentation, and trademarks, is owned by LeadSync and protected by applicable intellectual property laws. Nothing in these Terms grants you ownership of or licence to any LeadSync intellectual property except as expressly stated.</p>
+    <p>You retain ownership of all content you create, upload, or import into the Service ("Your Content"), including AI agent configurations, knowledge base materials, and lead data. You grant LeadSync a limited, non-exclusive, royalty-free licence to use Your Content solely to provide and improve the Service.</p>
+    <p>You represent that you have all rights necessary to grant this licence and that Your Content does not infringe the rights of any third party.</p>
+  </div>
 
-  <h3>6.2 Your Content</h3>
-  <p>You retain ownership of:</p>
-  <ul>
-    <li>Your AI strategies and prompts</li>
-    <li>Your conversation data and templates</li>
-    <li>Your customer/lead information</li>
-  </ul>
+  <div class="sec" id="s8">
+    <div class="sec-head"><span class="sec-num">SECTION 8</span><span class="sec-title">Third-Party Services</span></div>
+    <p>LeadSync integrates with and relies on the following third-party services to deliver the platform:</p>
+    <ul>
+      <li><strong>GoHighLevel:</strong> CRM and automation platform</li>
+      <li><strong>Creem.io:</strong> Payment processing (merchant of record)</li>
+      <li><strong>Groq:</strong> AI processing infrastructure</li>
+      <li><strong>Render, Neon, Vercel:</strong> Cloud hosting and database infrastructure</li>
+      <li><strong>Twilio:</strong> SMS and communication services</li>
+      <li><strong>ElevenLabs:</strong> Voice synthesis</li>
+      <li><strong>Google Calendar:</strong> Appointment scheduling</li>
+      <li><strong>Slack:</strong> Notification delivery</li>
+      <li><strong>Meta:</strong> Lead capture integrations</li>
+    </ul>
+    <p>LeadSync is not responsible for the availability, performance, or actions of these third-party services. Your use of third-party services is subject to their respective terms and privacy policies.</p>
+  </div>
 
-  <h3>6.3 License to Us</h3>
-  <p>You grant us a limited license to use your content solely to provide and improve the Service. We will not share your strategies with competitors.</p>
+  <div class="sec" id="s9">
+    <div class="sec-head"><span class="sec-num">SECTION 9</span><span class="sec-title">Disclaimers</span></div>
+    <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT ANY WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. LEADSYNC SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+    <p>LEADSYNC DOES NOT WARRANT THAT THE SERVICE WILL OPERATE WITHOUT INTERRUPTION OR ERROR, OR THAT THE SERVICE WILL MEET YOUR SPECIFIC REQUIREMENTS.</p>
+    <p>AI-generated responses produced by the Service are automated and may not always be accurate. You are solely responsible for reviewing, moderating, and taking accountability for all communications sent to your leads through the Service.</p>
+  </div>
 
-  <h2>7. AI and Automated Content</h2>
-  <h3>7.1 AI-Generated Responses</h3>
-  <p>You acknowledge that:</p>
-  <ul>
-    <li>AI responses are generated automatically based on your configuration</li>
-    <li>AI may occasionally produce inaccurate or inappropriate content</li>
-    <li>You are responsible for monitoring and controlling AI interactions</li>
-    <li>We are not liable for AI-generated content</li>
-  </ul>
+  <div class="sec" id="s10">
+    <div class="sec-head"><span class="sec-num">SECTION 10</span><span class="sec-title">Limitation of Liability</span></div>
+    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, LEADSYNC, ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO YOUR USE OF THE SERVICE.</p>
+    <p>IN NO EVENT SHALL LEADSYNC'S TOTAL AGGREGATE LIABILITY TO YOU EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID FOR THE SERVICE IN THE THREE CALENDAR MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM, OR (B) ONE HUNDRED US DOLLARS ($100).</p>
+    <p>SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IN SUCH JURISDICTIONS, THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU IN FULL.</p>
+  </div>
 
-  <h3>7.2 Your Responsibilities</h3>
-  <p>You must:</p>
-  <ul>
-    <li>Review and test AI strategies before deploying them</li>
-    <li>Monitor conversations for quality and compliance</li>
-    <li>Configure appropriate safety measures</li>
-    <li>Comply with all applicable regulations (POPIA, GDPR, etc.)</li>
-  </ul>
+  <div class="sec" id="s11">
+    <div class="sec-head"><span class="sec-num">SECTION 11</span><span class="sec-title">Indemnification</span></div>
+    <p>You agree to defend, indemnify, and hold harmless LeadSync and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, or expenses (including reasonable legal fees) arising out of or relating to:</p>
+    <ul>
+      <li>Your use of the Service in violation of these Terms</li>
+      <li>Your Content or its use by LeadSync as permitted under these Terms</li>
+      <li>Your violation of any applicable law or regulation</li>
+      <li>Your violation of any third-party rights, including intellectual property or privacy rights</li>
+    </ul>
+  </div>
 
-  <h2>8. Third-Party Services</h2>
-  <p>LeadSync integrates with third-party services including:</p>
-  <ul>
-    <li><strong>GoHighLevel:</strong> CRM and conversation management</li>
-    <li><strong>Paddle:</strong> Payment processing (merchant of record)</li>
-    <li><strong>Meta:</strong> Messenger and Instagram messaging</li>
-    <li><strong>Groq:</strong> AI language model</li>
-  </ul>
-  <p>Your use of these services is subject to their respective terms and policies. We are not responsible for third-party services.</p>
+  <div class="sec" id="s12">
+    <div class="sec-head"><span class="sec-num">SECTION 12</span><span class="sec-title">Customer Support</span></div>
 
-  <h2>9. Data Protection and Privacy</h2>
-  <p>Your privacy is important to us. Please review our <a href="/privacy">Privacy Policy</a> to understand how we collect, use, and protect your information.</p>
-  <p>We comply with the Protection of Personal Information Act (POPIA) and GDPR where applicable.</p>
+    <h3>12.1 General Support</h3>
+    <p>All LeadSync subscribers have access to our standard support channels, including email support and access to our help documentation. For support enquiries, contact us at <a href="mailto:hello@goleadsyncs.com">hello@goleadsyncs.com</a>.</p>
+    <p>We aim to respond to all support requests within 2 business days. Response times may vary during high-demand periods or public holidays.</p>
 
-  <h2>10. Disclaimers and Limitations</h2>
-  <h3>10.1 Service "AS IS"</h3>
-  <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
+    <h3>12.2 Plan-Specific Support</h3>
+    <ul>
+      <li><strong>Starter:</strong> Standard email support</li>
+      <li><strong>Pro:</strong> Priority email support and dedicated Slack channel access</li>
+      <li><strong>Launch Sync Unlimited:</strong> Priority support with complimentary onboarding assistance including initial agent configuration</li>
+    </ul>
+  </div>
 
-  <h3>10.2 No Guarantees</h3>
-  <p>We do not guarantee:</p>
-  <ul>
-    <li>Uninterrupted or error-free service</li>
-    <li>Specific results or conversion rates</li>
-    <li>Compatibility with all systems or browsers</li>
-    <li>Accuracy of AI-generated content</li>
-  </ul>
+  <div class="sec" id="s13">
+    <div class="sec-head"><span class="sec-num">SECTION 13</span><span class="sec-title">Governing Law and Jurisdiction</span></div>
+    <p>These Terms are governed by and construed in accordance with the laws of South Africa, without regard to its conflict of law provisions.</p>
+    <p>Any dispute arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in Johannesburg, Gauteng, South Africa.</p>
+  </div>
 
-  <h3>10.3 Limitation of Liability</h3>
-  <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOST DATA, OR BUSINESS INTERRUPTION.</p>
-  <p>OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE 12 MONTHS PRECEDING THE CLAIM.</p>
+  <div class="sec" id="s14">
+    <div class="sec-head"><span class="sec-num">SECTION 14</span><span class="sec-title">Amendments</span></div>
+    <p>LeadSync reserves the right to modify these Terms at any time. We will notify you of material changes by email or by posting a prominent notice within the Service at least 14 days prior to the changes taking effect.</p>
+    <p>Your continued use of the Service after the effective date of updated Terms constitutes your acceptance of those changes. If you do not agree to the revised Terms, you must discontinue use before the effective date.</p>
+  </div>
 
-  <h2>11. Indemnification</h2>
-  <p>You agree to indemnify and hold harmless LeadSync, its officers, directors, employees, and agents from any claims, damages, losses, or expenses arising from:</p>
-  <ul>
-    <li>Your use of the Service</li>
-    <li>Your violation of these Terms</li>
-    <li>Your violation of any third-party rights</li>
-    <li>Content you submit or AI interactions you configure</li>
-  </ul>
+  <div class="sec" id="s15">
+    <div class="sec-head"><span class="sec-num">SECTION 15</span><span class="sec-title">Contact Information</span></div>
+    <p>For questions about these Terms of Service, please contact us:</p>
+    <div class="info-box">
+      <strong>LeadSync</strong><br>
+      Email: <a href="mailto:hello@goleadsyncs.com">hello@goleadsyncs.com</a><br>
+      Website: <a href="https://goleadsyncs.com">goleadsyncs.com</a>
+    </div>
+  </div>
 
-  <h2>12. Service Availability</h2>
-  <h3>12.1 Uptime</h3>
-  <p>We strive for 99.9% uptime but do not guarantee uninterrupted service. Scheduled maintenance will be communicated in advance when possible.</p>
-
-  <h3>12.2 Support</h3>
-  <ul>
-    <li><strong>Starter:</strong> Email support (24-48 hour response)</li>
-    <li><strong>Pro:</strong> Priority email support</li>
-    <li><strong>Launch Sync Unlimited:</strong> Priority support with done-for-you onboarding</li>
-  </ul>
-
-  <h2>13. Modifications to Service and Terms</h2>
-  <h3>13.1 Service Changes</h3>
-  <p>We reserve the right to modify, suspend, or discontinue any part of the Service with or without notice. We are not liable for any modifications or discontinuation.</p>
-
-  <h3>13.2 Terms Changes</h3>
-  <p>We may revise these Terms at any time. Material changes will be notified via email or platform notification. Continued use after changes constitutes acceptance.</p>
-
-  <h2>14. Governing Law and Disputes</h2>
-  <h3>14.1 Governing Law</h3>
-  <p>These Terms are governed by the laws of South Africa, without regard to conflict of law principles.</p>
-
-  <h3>14.2 Dispute Resolution</h3>
-  <p>Any disputes shall be resolved through good faith negotiation. If unresolved, disputes shall be subject to the exclusive jurisdiction of the courts of South Africa.</p>
-
-  <h2>15. General Provisions</h2>
-  <h3>15.1 Entire Agreement</h3>
-  <p>These Terms constitute the entire agreement between you and LeadSync regarding the Service.</p>
-
-  <h3>15.2 Severability</h3>
-  <p>If any provision is found unenforceable, the remaining provisions remain in full effect.</p>
-
-  <h3>15.3 Waiver</h3>
-  <p>Failure to enforce any right or provision does not constitute a waiver of that right or provision.</p>
-
-  <h3>15.4 Assignment</h3>
-  <p>You may not assign these Terms without our written consent. We may assign these Terms without restriction.</p>
-
-  <h2>16. Contact Information</h2>
-  <p>For questions about these Terms:</p>
-  <ul>
-    <li><strong>Email:</strong> legal@goleadsyncs.com</li>
-    <li><strong>Support:</strong> support@goleadsyncs.com</li>
-    <li><strong>Website:</strong> https://goleadsyncs.com</li>
-  </ul>
-
-  <p style="margin-top:40px;padding:20px;background:rgba(99,102,241,0.08);border-radius:8px;border:1px solid rgba(99,102,241,0.2);">
-    <strong>Acknowledgment:</strong> By using LeadSync, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
-  </p>
 </div>
+
 <footer>
-  <p>&copy; 2026 LeadSync. All rights reserved.</p>
-  <a href="/terms">Terms of Service</a>
-  <a href="/privacy">Privacy Policy</a>
-  <a href="/refund">Refund Policy</a>
+  <div class="wrap">
+    <div class="foot-in">
+      <a href="/" class="foot-brand"><img src="/favicon.png" alt="LeadSync"><span>LeadSync</span></a>
+      <div class="foot-links">
+        <a href="/terms">Terms of Service</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/refund">Refund Policy</a>
+        <a href="mailto:hello@goleadsyncs.com">hello@goleadsyncs.com</a>
+      </div>
+      <p class="foot-copy">&copy; 2026 LeadSync. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
+
 </body>
 </html>
