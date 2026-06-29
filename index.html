@@ -562,12 +562,6 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
           </a>
           <a href="#how-it-works" class="btn btn-ghost btn-lg">Watch It Work &rarr;</a>
         </div>
-        <div class="hero-trust">
-          <div class="avs">
-            <div class="av av1">AG</div><div class="av av2">KC</div><div class="av av3">RE</div><div class="av av4">FS</div>
-          </div>
-          <span class="trust-txt"><strong>500+ businesses</strong> automating their lead management</span>
-        </div>
       </div>
       <div>
         <div class="chat-card">
@@ -608,7 +602,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
     <div class="stats-grid">
       <div class="stat rev"><span class="stat-num" data-static="true">Speed to Lead</span><span class="stat-label">Never let a lead get cold</span></div>
       <div class="stat rev d1"><span class="stat-num" data-static="true">Human-like Reply</span><span class="stat-label">Sounds just like you</span></div>
-      <div class="stat rev d2"><span class="stat-num" data-target="4.8" data-suffix="x" data-float="1">0</span><span class="stat-label">More appointments booked</span></div>
+      <div class="stat rev d2"><span class="stat-num" data-static="true">Instant Response</span><span class="stat-label">Under 3 seconds</span></div>
       <div class="stat rev d3"><span class="stat-num" data-static="24/7">24/7</span><span class="stat-label">Always on, zero downtime</span></div>
     </div>
   </div>
@@ -924,10 +918,10 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
           <tr><td>24/7 Instant Response</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cp">Basic</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td></tr>
           <tr><td>Real-Time CRM Sync</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cp">Manual entry</span></td><td><span class="cp">Limited</span></td></tr>
           <tr><td>Analytics</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cn">✗</span></td><td><span class="cp">Basic only</span></td></tr>
-          <tr><td>Done-For-You Option</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td><td><span class="cp">Limited</span></td></tr>
+          <tr><td>Concierge Onboarding</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td><td><span class="cp">Limited</span></td></tr>
           <tr><td>Human-like Approach</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cp">Scripted</span></td><td><span class="cn">✗</span></td></tr>
           <tr><td>14-Day Free Trial</td><td class="td-ls"><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td></tr>
-          <tr class="comp-cta-row"><td></td><td class="td-ls"><button class="comp-cta-btn" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get Started Free →</button></td><td></td><td></td><td></td></tr>
+          <tr class="comp-cta-row"><td></td><td class="td-ls"><button class="comp-cta-btn" onclick="goRegister('starter')">Get Started Free →</button></td><td></td><td></td><td></td></tr>
         </tbody>
       </table>
     </div>
@@ -1007,6 +1001,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
       <div class="int-card">
         <img src="/meta-logo.webp" alt="Meta" style="background:#fff;border-radius:8px;padding:4px;">
         <span>Meta</span>
+        <span style="font-size:0.65rem;opacity:0.6;">Through GHL</span>
       </div>
       <div class="int-card">
         <img src="/slack-png.webp" alt="Slack">
@@ -1019,9 +1014,20 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
       <div class="int-card">
         <img src="/Twilio_Logo.png" alt="Twilio">
         <span>Twilio</span>
+        <span style="font-size:0.65rem;opacity:0.6;">Through GHL</span>
+      </div>
+      <div class="int-card">
+        <img src="/tiktok-logo.webp" alt="TikTok">
+        <span>TikTok</span>
+        <span style="font-size:0.65rem;opacity:0.6;">Through GHL</span>
+      </div>
+      <div class="int-card">
+        <img src="/calendly-logo.png" alt="Calendly" style="background:#fff;border-radius:8px;padding:4px;">
+        <span>Calendly</span>
+        <span style="font-size:0.65rem;opacity:0.6;">Through GHL</span>
       </div>
     </div>
-    <p class="int-note rev">All integrations are <strong>native and real-time</strong>. More coming soon.</p>
+    <p class="int-note rev">All integrations are <strong>native and real-time</strong>. Plus <strong>40+ more</strong> through GoHighLevel.</p>
   </div>
 </section>
 
@@ -1032,12 +1038,6 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
       <span class="chip">Pricing</span>
       <h2 style="color:#fff">Start Free.<br><span class="grad-text">Scale Fast.</span></h2>
       <p>14-day free trial on all plans. No credit card. No commitment.</p>
-    </div>
-    <div class="ptog rev">
-      <div class="tog-wrap">
-        <button class="tb on" id="tbM">Monthly</button>
-        <button class="tb" id="tbA">Annual <span class="save-chip">SAVE 17%</span></button>
-      </div>
     </div>
     <div class="p-grid">
       <div class="pc rev">
@@ -1072,7 +1072,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
         <button class="pbtn pbtn-pri" onclick="goRegister('pro')">Start Free Trial</button>
       </div>
       <div class="pc rev d2">
-        <div class="dfy-tag"><svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Done For You</div>
+        <div class="dfy-tag"><svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Concierge Setup</div>
         <div class="pname">Launch Sync Unlimited</div>
         <div class="pprice"><span class="psym">$</span><span class="pamt" id="pl">449</span><span class="pper">/mo</span></div>
         <p class="pbill" id="bl">&nbsp;</p>
@@ -1082,8 +1082,8 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Unlimited users</div>
         <div class="pdiv"></div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Everything in Pro</div>
-        <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg><strong style="color:#f472b6">Done For You:</strong>&nbsp;1 AI Agent built by our team</div>
-        <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>We build &amp; launch your agent for you</div>
+        <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg><strong style="color:#f472b6">Concierge Setup:</strong>&nbsp;1 AI Agent configured by our team</div>
+        <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Guided onboarding included</div>
         <button class="pbtn pbtn-out" onclick="window.open('https://calendly.com/lead_sync/30min?redirectUrl=https%3A%2F%2Fapp.goleadsyncs.com','_blank')">Book a Call</button>
       </div>
     </div>
@@ -1119,8 +1119,8 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
         <div class="faq-a"><div class="faq-a-inner">Yes -upgrade or downgrade any time from your billing page. Changes take effect immediately and your billing is adjusted accordingly. No contracts, no lock-ins.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">What is the Done For You service?<svg class="faq-chev" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">Available on the Launch Sync plan for a one-time $997 setup fee. Our team personally builds and launches your first AI agent -trained on your business, tested, and ready to convert leads from day one. You don't lift a finger.</div></div>
+        <button class="faq-q">What is the Concierge Setup?<svg class="faq-chev" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">Available on the Launch Sync Unlimited plan. Our team personally configures your first AI agent - trained on your business, tested, and ready to convert leads from day one. Included as part of your subscription.</div></div>
       </div>
     </div>
   </div>
@@ -1130,6 +1130,11 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
 <section class="sec form-sec" id="signup" style="display:none">
   <div class="wrap">
     <div class="form-center">
+      <div class="sec-tag rev">
+        <span class="chip">Get Started</span>
+        <h2 style="color:#fff">Your AI Sales Team<br><span class="grad-text">Starts Here.</span></h2>
+        <p>No credit card. 14 days free. Cancel anytime.</p>
+      </div>
       <div class="form-card rev">
         <div class="form-inner">
           <form id="trialForm">
@@ -1217,9 +1222,10 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
         <a href="#compare">Compare</a>
         <a href="#pricing">Pricing</a>
         <a href="#who">Who It's For</a>
-        <a href="https://goleadsyncs.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
-        <a href="https://goleadsyncs.com/terms" target="_blank" rel="noopener">Terms of Service</a>
-        <a href="https://goleadsyncs.com/refund" target="_blank" rel="noopener">Refund Policy</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/refund">Refund Policy</a>
+        <a href="mailto:hello@goleadsyncs.com">hello@goleadsyncs.com</a>
       </div>
       <div class="foot-right">
         <p class="foot-made">Made for GHL Agencies &amp; Beyond</p>
@@ -1322,27 +1328,10 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 
-// ── PRICING TOGGLE ────────────────────────────
-const prices={m:{s:89,p:289,l:449},a:{s:74,p:241,l:374}};
-function setP(t){
-  const pr=prices[t];
-  document.getElementById('ps').textContent=pr.s;
-  document.getElementById('pp').textContent=pr.p;
-  document.getElementById('pl').textContent=pr.l;
-  const a=t==='a';
-  document.getElementById('bs').textContent=a?`Billed $${pr.s*12}/yr`:' ';
-  document.getElementById('bp').textContent=a?`Billed $${pr.p*12}/yr`:' ';
-  document.getElementById('bl').textContent=a?`Billed $${pr.l*12}/yr`:' ';
-  document.getElementById('tbM').classList.toggle('on',t==='m');
-  document.getElementById('tbA').classList.toggle('on',t==='a');
-}
-let curBilling='m';
-document.getElementById('tbM').addEventListener('click',()=>{curBilling='m';setP('m');});
-document.getElementById('tbA').addEventListener('click',()=>{curBilling='a';setP('a');});
 
+// ── PRICING CTA ───────────────────────────────
 function goRegister(plan){
-  const billing=curBilling==='a'?'annual':'monthly';
-  window.location.href='https://app.goleadsyncs.com/register?plan='+plan+'&billing='+billing;
+  window.location.href='https://app.goleadsyncs.com/register?plan='+plan+'&billing=monthly';
 }
 
 // ── CHAT AUTO-SCROLL ──────────────────────────
@@ -1368,9 +1357,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 <footer style="border-top:1px solid rgba(255,255,255,0.08);padding:24px 16px;text-align:center;background:#050816;">
   <p style="margin:0 0 10px;font-size:13px;color:rgba(255,255,255,0.35);">&copy; 2026 LeadSync. All rights reserved.</p>
   <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-    <a href="https://app.goleadsyncs.com/terms-of-service" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">Terms of Service</a>
-    <a href="https://app.goleadsyncs.com/privacy-policy" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">Privacy Policy</a>
-    <a href="https://app.goleadsyncs.com/refund-policy" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">Refund Policy</a>
+    <a href="/terms" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">Terms of Service</a>
+    <a href="/privacy" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">Privacy Policy</a>
+    <a href="/refund" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">Refund Policy</a>
+    <a href="mailto:hello@goleadsyncs.com" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">hello@goleadsyncs.com</a>
   </div>
 </footer>
 </body>

@@ -1,71 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Refund Policy | LeadSync</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#050816;color:#e2e8f0;line-height:1.7}
-    header{padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:12px}
-    header a{color:#6366f1;text-decoration:none;font-weight:700;font-size:18px}
-    .container{max-width:800px;margin:0 auto;padding:48px 24px 80px}
-    h1{font-size:2rem;font-weight:700;margin-bottom:8px;color:#fff}
-    .updated{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:40px}
-    h2{font-size:1.2rem;font-weight:700;color:#a5b4fc;margin:36px 0 12px}
-    p{margin-bottom:12px;color:#cbd5e1}
-    ul{padding-left:20px;margin-bottom:12px;color:#cbd5e1}
-    li{margin-bottom:6px}
-    a{color:#6366f1}
-    footer{border-top:1px solid rgba(255,255,255,0.08);padding:24px;text-align:center}
-    footer p{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:10px}
-    footer a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;margin:0 10px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Refund Policy | LeadSync</title>
+<link rel="icon" href="/favicon.png">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:#060012;color:#fff;line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 900px 700px at 5% -5%,rgba(109,40,217,.22),transparent 65%),
+    radial-gradient(ellipse 700px 600px at 100% 105%,rgba(219,39,119,.12),transparent 65%),
+    radial-gradient(ellipse 500px 400px at 75% 20%,rgba(139,92,246,.1),transparent 65%);
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+.nav{padding:18px 0;border-bottom:1px solid rgba(139,92,246,.15);position:sticky;top:0;background:rgba(6,0,18,.92);backdrop-filter:blur(20px);z-index:100}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo img{width:28px;height:28px;border-radius:7px}
+.nav-logo span{font-size:16px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.nav-back{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .2s;padding:7px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.1)}
+.nav-back:hover{color:#fff;border-color:rgba(255,255,255,.25)}
+.header{padding:56px 0 36px}
+.label{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8B5CF6;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25);border-radius:20px;padding:5px 14px;margin-bottom:18px}
+.header h1{font-size:clamp(2rem,5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px}
+.header-meta{font-size:13px;color:rgba(255,255,255,.4);display:flex;gap:16px;flex-wrap:wrap}
+.toc{background:rgba(18,6,36,.7);border:1px solid rgba(139,92,246,.2);border-radius:14px;padding:24px 28px;margin-bottom:40px;backdrop-filter:blur(10px)}
+.toc h3{font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.toc ol{margin-left:18px;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
+@media(max-width:600px){.toc ol{grid-template-columns:1fr}}
+.toc li{font-size:13px}
+.toc a{color:#a78bfa;text-decoration:none;transition:color .2s}
+.toc a:hover{color:#fff;text-decoration:underline}
+.sec{margin-bottom:28px;padding:28px 32px;background:rgba(14,5,32,.7);border:1px solid rgba(139,92,246,.13);border-radius:16px;backdrop-filter:blur(12px);transition:border-color .2s}
+.sec:hover{border-color:rgba(139,92,246,.28)}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(139,92,246,.12)}
+.sec-num{font-size:10px;font-weight:700;color:#8B5CF6;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.25);border-radius:20px;padding:3px 10px;letter-spacing:.05em;white-space:nowrap;flex-shrink:0}
+.sec-title{font-size:1.05rem;font-weight:700;color:#fff}
+.sec h3{font-size:.9rem;font-weight:700;color:rgba(255,255,255,.9);margin:18px 0 8px}
+.sec p{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.78;margin-bottom:10px}
+.sec ul,.sec ol{margin-left:20px;margin-bottom:10px}
+.sec li{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.78;margin-bottom:6px}
+.sec a{color:#a78bfa;text-decoration:none}
+.sec a:hover{text-decoration:underline}
+.info-box{background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:14px 18px;margin:10px 0 12px;font-size:13.5px;color:rgba(255,255,255,.68);line-height:1.75}
+.info-box strong{color:#fff}
+.notice{background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.2);border-radius:10px;padding:14px 18px;margin:10px 0 12px;font-size:13.5px;color:rgba(255,255,255,.68);line-height:1.75}
+footer{padding:32px 0;border-top:1px solid rgba(139,92,246,.15);position:relative;z-index:1;margin-top:20px}
+.foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.foot-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.foot-brand img{width:22px;height:22px;border-radius:5px}
+.foot-brand span{font-size:14px;font-weight:800;color:#fff}
+.foot-links{display:flex;gap:4px;flex-wrap:wrap}
+.foot-links a{font-size:12px;color:rgba(255,255,255,.38);text-decoration:none;padding:5px 9px;border-radius:6px;transition:all .2s}
+.foot-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.foot-copy{font-size:11px;color:rgba(255,255,255,.22)}
+@media(max-width:600px){.sec{padding:20px 18px}.header{padding:40px 0 28px}}
+</style>
 </head>
 <body>
-<header>
-  <a href="https://goleadsyncs.com">&#8592; LeadSync</a>
-</header>
-<div class="container">
-  <h1>Refund Policy</h1>
-  <p class="updated">Last Updated: June 11, 2026</p>
 
-  <h2>1. Free Trial First</h2>
-  <p>Every LeadSync plan starts with a 14-day free trial. No payment is taken until your trial ends, so you can evaluate the full platform before you are ever charged.</p>
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-in">
+      <a href="/" class="nav-logo"><img src="/favicon.png" alt="LeadSync"><span>LeadSync</span></a>
+      <a href="/" class="nav-back">← Home</a>
+    </div>
+  </div>
+</nav>
 
-  <h2>2. 14-Day Money-Back Guarantee</h2>
-  <p>If LeadSync is not right for you, we offer a 14-day money-back guarantee on your first subscription payment. Contact us within 14 days of your first charge and we will refund it in full, no questions asked.</p>
-  <ul>
-    <li>Applies to your first payment on monthly and annual plans</li>
-    <li>Request must be made within 14 days of the first charge</li>
-    <li>One-time setup or done-for-you service fees are refundable only if work has not yet started</li>
-  </ul>
+<div class="wrap">
+  <div class="header">
+    <div class="label">Legal</div>
+    <h1>Refund Policy</h1>
+    <div class="header-meta">
+      <span>Last updated: June 18, 2026</span>
+      <span>Effective: June 18, 2026</span>
+    </div>
+  </div>
 
-  <h2>3. Renewals and Partial Periods</h2>
-  <ul>
-    <li>Subscription renewals are not refundable once a new billing period has started</li>
-    <li>We do not provide pro-rata refunds for partial months or unused time</li>
-    <li>You can cancel at any time; cancellation takes effect at the end of the current billing period and you keep access until then</li>
-  </ul>
+  <div class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#s1">Free Trial</a></li>
+      <li><a href="#s2">Eligibility for Refunds</a></li>
+      <li><a href="#s3">How to Request a Refund</a></li>
+      <li><a href="#s4">Refund Processing</a></li>
+      <li><a href="#s5">Non-Refundable Items</a></li>
+      <li><a href="#s6">Plan Changes</a></li>
+      <li><a href="#s7">Contact</a></li>
+    </ol>
+  </div>
 
-  <h2>4. How to Request a Refund</h2>
-  <p>Email <strong>support@goleadsyncs.com</strong> from the email address on your account with the subject line "Refund Request". Please include your account email and the date of the charge.</p>
-  <p>Approved refunds are returned to your original payment method. Payments are processed by Paddle.com, our merchant of record, and refunds normally appear within 5 to 10 business days depending on your bank.</p>
+  <div class="sec" id="s1">
+    <div class="sec-head"><span class="sec-num">SECTION 1</span><span class="sec-title">Free Trial</span></div>
+    <div class="notice">
+      All LeadSync plans include a <strong>14-day free trial</strong> with no credit card required. You will not be charged during the trial period.
+    </div>
+    <p>If you do not select a paid plan before the trial ends, your AI agents will be automatically paused and your account will be restricted. No charge will be made. Your account data is retained for 30 days after trial expiry, after which it may be permanently deleted.</p>
+  </div>
 
-  <h2>5. Billing Issues</h2>
-  <p>If you believe you were charged in error (for example a duplicate charge), contact us before raising a dispute with your bank and we will resolve it quickly. You can also reach Paddle, our payment provider, directly via their buyer support at paddle.net.</p>
+  <div class="sec" id="s2">
+    <div class="sec-head"><span class="sec-num">SECTION 2</span><span class="sec-title">Eligibility for Refunds</span></div>
+    <p>We offer refunds under the following conditions:</p>
+    <ul>
+      <li>Subscription fees are eligible for a refund if requested within 7 days of the initial charge and the account has not been used significantly during that period.</li>
+      <li>Concierge Setup fees or complimentary onboarding assistance included in higher tier plans are refundable only if onboarding has not yet commenced.</li>
+      <li>Renewal charges may be refunded if the request is made within 48 hours of the renewal date and the account was not actively used during the new billing period.</li>
+    </ul>
+    <p>Refunds are considered on a case-by-case basis. We reserve the right to assess usage and make a determination at our discretion.</p>
+  </div>
 
-  <h2>6. Contact</h2>
-  <ul>
-    <li><strong>Support:</strong> support@goleadsyncs.com</li>
-    <li><strong>Website:</strong> https://goleadsyncs.com</li>
-  </ul>
+  <div class="sec" id="s3">
+    <div class="sec-head"><span class="sec-num">SECTION 3</span><span class="sec-title">How to Request a Refund</span></div>
+    <p>To request a refund, contact our support team at <a href="mailto:hello@goleadsyncs.com">hello@goleadsyncs.com</a> with the following information:</p>
+    <ul>
+      <li>Your account email address</li>
+      <li>The reason for your refund request</li>
+      <li>The charge amount and approximate date</li>
+    </ul>
+    <p>We aim to respond to all refund requests within 2 business days and to process approved refunds promptly thereafter.</p>
+  </div>
+
+  <div class="sec" id="s4">
+    <div class="sec-head"><span class="sec-num">SECTION 4</span><span class="sec-title">Refund Processing</span></div>
+    <p>Approved refunds are returned to your original payment method. Payments are processed by Creem.io, our merchant of record, and refunds normally appear within 5 to 10 business days depending on your bank.</p>
+    <p>You can also reach Creem.io, our payment provider, directly via their buyer support at <a href="https://creem.io" target="_blank" rel="noopener">creem.io</a>.</p>
+  </div>
+
+  <div class="sec" id="s5">
+    <div class="sec-head"><span class="sec-num">SECTION 5</span><span class="sec-title">Non-Refundable Items</span></div>
+    <p>The following are generally not eligible for refunds:</p>
+    <ul>
+      <li>Subscription periods where the Service was actively and substantially used</li>
+      <li>Charges for periods falling outside the refund window described in Section 2</li>
+      <li>Fees waived, discounted, or offered as part of a promotional arrangement</li>
+      <li>Onboarding or setup services where work has already commenced</li>
+    </ul>
+  </div>
+
+  <div class="sec" id="s6">
+    <div class="sec-head"><span class="sec-num">SECTION 6</span><span class="sec-title">Plan Changes</span></div>
+    <p>If you <strong>upgrade</strong> your plan, the new rate takes effect immediately and your billing is adjusted on a pro-rated basis for the remainder of the current period.</p>
+    <p>If you <strong>downgrade</strong> your plan, the change takes effect at the start of the next billing cycle. Downgrades do not result in a refund for the difference in the current period.</p>
+    <p>You may change your plan at any time from your account billing settings.</p>
+  </div>
+
+  <div class="sec" id="s7">
+    <div class="sec-head"><span class="sec-num">SECTION 7</span><span class="sec-title">Contact</span></div>
+    <p>For refund-related questions or to submit a request, please contact us:</p>
+    <div class="info-box">
+      <strong>LeadSync Support</strong><br>
+      Email: <a href="mailto:hello@goleadsyncs.com">hello@goleadsyncs.com</a><br>
+      Website: <a href="https://goleadsyncs.com">goleadsyncs.com</a>
+    </div>
+  </div>
+
 </div>
+
 <footer>
-  <p>&copy; 2026 LeadSync. All rights reserved.</p>
-  <a href="/terms">Terms of Service</a>
-  <a href="/privacy">Privacy Policy</a>
-  <a href="/refund">Refund Policy</a>
+  <div class="wrap">
+    <div class="foot-in">
+      <a href="/" class="foot-brand"><img src="/favicon.png" alt="LeadSync"><span>LeadSync</span></a>
+      <div class="foot-links">
+        <a href="/terms">Terms of Service</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/refund">Refund Policy</a>
+        <a href="mailto:hello@goleadsyncs.com">hello@goleadsyncs.com</a>
+      </div>
+      <p class="foot-copy">&copy; 2026 LeadSync. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
+
 </body>
 </html>
