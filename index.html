@@ -1053,7 +1053,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Knowledge base training</div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>AI Co-Pilot Builder</div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Basic analytics + GHL integration</div>
-        <button class="pbtn pbtn-out" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Start Free Trial</button>
+        <button class="pbtn pbtn-out" onclick="goRegister('starter')">Start Free Trial</button>
       </div>
       <div class="pc pop rev d1">
         <div class="pop-tag">MOST POPULAR</div>
@@ -1069,7 +1069,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Slack support</div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Smart routing</div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Advanced analytics + Priority support</div>
-        <button class="pbtn pbtn-pri" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Start Free Trial</button>
+        <button class="pbtn pbtn-pri" onclick="goRegister('pro')">Start Free Trial</button>
       </div>
       <div class="pc rev d2">
         <div class="dfy-tag"><svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Done For You</div>
@@ -1084,7 +1084,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Everything in Pro</div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg><strong style="color:#f472b6">Done For You:</strong>&nbsp;1 AI Agent built by our team</div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>We build &amp; launch your agent for you</div>
-        <button class="pbtn pbtn-out" onclick="window.open('#','_blank')">Book a Call</button>
+        <button class="pbtn pbtn-out" onclick="window.open('https://calendly.com/lead_sync/30min?redirectUrl=https%3A%2F%2Fapp.goleadsyncs.com','_blank')">Book a Call</button>
       </div>
     </div>
   </div>
@@ -1126,15 +1126,10 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
   </div>
 </section>
 
-<!-- FORM -->
-<section class="sec form-sec" id="signup">
+<!-- FORM REMOVED — pricing buttons go directly to register page -->
+<section class="sec form-sec" id="signup" style="display:none">
   <div class="wrap">
     <div class="form-center">
-      <div class="sec-tag rev">
-        <span class="chip">Get Started</span>
-        <h2 style="color:#fff">Your AI Sales Team<br><span class="grad-text">Starts Here.</span></h2>
-        <p>No credit card. 14 days free. Cancel anytime.</p>
-      </div>
       <div class="form-card rev">
         <div class="form-inner">
           <form id="trialForm">
@@ -1341,47 +1336,14 @@ function setP(t){
   document.getElementById('tbM').classList.toggle('on',t==='m');
   document.getElementById('tbA').classList.toggle('on',t==='a');
 }
-document.getElementById('tbM').addEventListener('click',()=>setP('m'));
-document.getElementById('tbA').addEventListener('click',()=>setP('a'));
+let curBilling='m';
+document.getElementById('tbM').addEventListener('click',()=>{curBilling='m';setP('m');});
+document.getElementById('tbA').addEventListener('click',()=>{curBilling='a';setP('a');});
 
-// ── BUSINESS TYPE OTHER ───────────────────────
-const btSel=document.getElementById('bt'),othWrap=document.getElementById('othWrap'),boInp=document.getElementById('bo');
-btSel.addEventListener('change',()=>{
-  const isOth=btSel.value==='Other';
-  othWrap.classList.toggle('show',isOth);
-  boInp.required=isOth;
-  btSel.classList.add('filled');
-});
-
-// ── FORM SUBMIT ───────────────────────────────
-const form=document.getElementById('trialForm'),sbtn=document.getElementById('sbtn'),ferr=document.getElementById('ferr'),fSucc=document.getElementById('fSucc');
-form.addEventListener('submit',async e=>{
-  e.preventDefault();
-  ferr.classList.remove('show');
-  sbtn.disabled=true;sbtn.textContent='Sending...';
-  const goApp=()=>{form.style.display='none';fSucc.classList.add('show');setTimeout(()=>{window.location.href='https://app.goleadsyncs.com/register';},2500);};
-  let r=null;
-  try{
-    r=await fetch('/api/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-      firstName:document.getElementById('fN').value.trim(),
-      lastName:document.getElementById('lN').value.trim(),
-      email:document.getElementById('em').value.trim(),
-      phone:(document.getElementById('dialCode').value.replace('-CA','')+' '+document.getElementById('ph').value.trim()).trim(),
-      businessType:btSel.value,
-      businessTypeOther:boInp.value.trim()
-    })});
-  }catch(err){}
-  // Static hosting has no signup API — send the visitor straight to registration
-  if(!r||r.status===404||r.status===405){goApp();return;}
-  try{
-    const j=await r.json();
-    if(!r.ok)throw new Error(j.error||'Something went wrong.');
-    goApp();
-  }catch(err){
-    ferr.textContent=err.message;ferr.classList.add('show');
-    sbtn.disabled=false;sbtn.textContent='Start My Free Trial →';
-  }
-});
+function goRegister(plan){
+  const billing=curBilling==='a'?'annual':'monthly';
+  window.location.href='https://app.goleadsyncs.com/register?plan='+plan+'&billing='+billing;
+}
 
 // ── CHAT AUTO-SCROLL ──────────────────────────
 const chatBodyEl=document.getElementById('chatBody');
