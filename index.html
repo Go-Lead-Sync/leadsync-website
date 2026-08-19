@@ -404,6 +404,8 @@ p{color:var(--muted)}
 .tog-wrap{display:inline-flex;background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:40px;padding:5px;gap:4px}
 .tb{padding:9px 24px;border-radius:36px;border:none;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;background:transparent;color:rgba(255,255,255,.5);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif}
 .tb.on{background:var(--grad);color:#fff}
+.tb-wrap{display:inline-flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:40px;padding:4px;margin:0 auto 36px;justify-content:center}
+.tb-row{display:flex;justify-content:center}
 .save-chip{background:rgba(74,222,128,.15);color:#4ade80;font-size:10px;font-weight:700;padding:2px 8px;border-radius:12px;margin-left:6px}
 .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
 .pc{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:36px 30px;position:relative;transition:all .3s;backdrop-filter:blur(12px)}
@@ -1093,10 +1095,22 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
       <h2 style="color:#fff">Start Free.<br><span class="grad-text">Scale Fast.</span></h2>
       <p>14-day free trial on all plans. No credit card. No commitment.</p>
     </div>
+    <div class="tb-row">
+      <div class="tb-wrap">
+        <button class="tb on" id="tbNoGhl" onclick="setGhl(false)">I have GHL</button>
+        <button class="tb" id="tbGhl" onclick="setGhl(true)">Add GHL sub-account</button>
+      </div>
+    </div>
+    <div class="tb-row">
+      <div class="tb-wrap">
+        <button class="tb on" id="tbMonthly" onclick="setCycle('monthly')">Monthly</button>
+        <button class="tb" id="tbYearly" onclick="setCycle('yearly')">Yearly <span class="save-chip" id="saveChip">Save 15%</span></button>
+      </div>
+    </div>
     <div class="p-grid">
       <div class="pc rev">
         <div class="pname">Starter</div>
-        <div class="pprice"><span class="psym">$</span><span class="pamt" id="ps">89</span><span class="pper">/mo</span></div>
+        <div class="pprice"><span class="psym">$</span><span class="pamt" id="ps">89</span><span class="pper" id="pers">/mo</span></div>
         <p class="pbill" id="bs">&nbsp;</p>
         <div class="plbl">Limits</div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>1 sub-account</div>
@@ -1112,7 +1126,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
       <div class="pc pop rev d1">
         <div class="pop-tag">MOST POPULAR</div>
         <div class="pname">Pro</div>
-        <div class="pprice"><span class="psym">$</span><span class="pamt" id="pp">289</span><span class="pper">/mo</span></div>
+        <div class="pprice"><span class="psym">$</span><span class="pamt" id="pp">289</span><span class="pper" id="perp">/mo</span></div>
         <p class="pbill" id="bp">&nbsp;</p>
         <div class="plbl">Limits</div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>5 sub-accounts</div>
@@ -1128,7 +1142,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
       <div class="pc rev d2">
         <div class="dfy-tag"><svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Concierge Setup</div>
         <div class="pname">Launch Sync Unlimited</div>
-        <div class="pprice"><span class="psym">$</span><span class="pamt" id="pl">449</span><span class="pper">/mo</span></div>
+        <div class="pprice"><span class="psym">$</span><span class="pamt" id="pl">449</span><span class="pper" id="perl">/mo</span></div>
         <p class="pbill" id="bl">&nbsp;</p>
         <div class="plbl">Limits</div>
         <div class="pf"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/></svg>Unlimited sub-accounts</div>
@@ -1384,9 +1398,54 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
 
 
 // ── PRICING CTA ───────────────────────────────
-function goRegister(plan){
-  window.location.href='https://app.goleadsyncs.com/register?plan='+plan+'&billing=monthly';
+const PLANS={
+  starter:{amt:'ps',per:'pers',bill:'bs',
+    monthly:{no:{price:89, url:'https://www.creem.io/payment/prod_4ym6a4j6EDENpPYbwuvLtA'},ghl:{price:139, url:'https://www.creem.io/payment/prod_6guqQob9IWL7DtnR7WZkL0'}},
+    yearly: {no:{price:890, url:'https://www.creem.io/payment/prod_R1x9yoMFr5YxCanqTZ7zr'},ghl:{price:1490,url:'https://www.creem.io/payment/prod_7InYtTVq0ZbBr6QMBZKjUA'}}},
+  pro:{amt:'pp',per:'perp',bill:'bp',
+    monthly:{no:{price:289, url:'https://www.creem.io/payment/prod_3RprPfHE4fRHFfjehvukAL'},ghl:{price:339, url:'https://www.creem.io/payment/prod_25f84yALGTyxu4WhLVzFbq'}},
+    yearly: {no:{price:2890,url:'https://www.creem.io/payment/prod_3Gocdqsb2lUXhF9UfPxDuD'},ghl:{price:3490,url:'https://www.creem.io/payment/prod_4ridKAc9Vgv1z7hoK20Ha0'}}},
+  launch:{amt:'pl',per:'perl',bill:'bl',
+    monthly:{no:{price:449, url:'https://www.creem.io/payment/prod_6lsSDNiV54EBdySnC6T9B1'},ghl:{price:499, url:'https://www.creem.io/payment/prod_5nphwHH0NTIADwICcH7mWc'}},
+    yearly: {no:{price:4490,url:'https://www.creem.io/payment/prod_2oUhd3ySDP6K6dU5oGCNCu'},ghl:{price:5090,url:'https://www.creem.io/payment/prod_2URHpKQdz0QRXlC64Y4Hvb'}}}
+};
+let hasGhlAddon=false, billCycle='monthly';
+
+function setGhl(on){
+  hasGhlAddon=on;
+  document.getElementById('tbNoGhl').classList.toggle('on',!on);
+  document.getElementById('tbGhl').classList.toggle('on',on);
+  renderPricing();
 }
+function setCycle(cycle){
+  billCycle=cycle;
+  document.getElementById('tbMonthly').classList.toggle('on',cycle==='monthly');
+  document.getElementById('tbYearly').classList.toggle('on',cycle==='yearly');
+  renderPricing();
+}
+function renderPricing(){
+  const ghlKey=hasGhlAddon?'ghl':'no';
+  for(const key in PLANS){
+    const p=PLANS[key];
+    const cur=p[billCycle][ghlKey];
+    document.getElementById(p.amt).textContent=cur.price.toLocaleString();
+    document.getElementById(p.per).textContent=billCycle==='monthly'?'/mo':'/yr';
+    const notes=[];
+    if(billCycle==='yearly')notes.push('billed annually');
+    if(hasGhlAddon)notes.push('includes GHL sub-account');
+    document.getElementById(p.bill).innerHTML=notes.length?notes.join(' · '):'&nbsp;';
+  }
+  const monthlyEq=PLANS.starter.monthly[ghlKey].price*12;
+  const savePct=Math.round((1-PLANS.starter.yearly[ghlKey].price/monthlyEq)*100);
+  document.getElementById('saveChip').textContent='Save '+savePct+'%';
+}
+function goRegister(plan){
+  const ghlKey=hasGhlAddon?'ghl':'no';
+  const {url}=PLANS[plan][billCycle][ghlKey];
+  const addon=hasGhlAddon?'&addon=ghl_subaccount':'';
+  window.location.href='https://app.goleadsyncs.com/register?plan='+plan+'&billing='+billCycle+addon+'&checkout='+encodeURIComponent(url);
+}
+renderPricing();
 
 // ── CHAT AUTO-SCROLL ──────────────────────────
 const chatBodyEl=document.getElementById('chatBody');
