@@ -189,6 +189,10 @@ p{color:var(--muted)}
 .chat-input-row button{background:var(--grad);border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;flex-shrink:0;transition:transform .15s}
 .chat-input-row button:hover{transform:scale(1.08)}
 .chat-input-row button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.chat-start{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:20px}
+.chat-start-btn{background:var(--grad);border:none;border-radius:14px;color:#fff;font-size:14px;font-weight:700;padding:14px 26px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:transform .2s,box-shadow .2s}
+.chat-start-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(139,92,246,.35)}
+.chat-start-sub{font-size:12px;color:var(--dim)}
 
 
 /* ── MULTIMODAL ──────────────────────────────── */
@@ -702,9 +706,15 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
             </div>
           </div>
           <div class="chat-body" id="chatBody">
-            <div class="msg msg-ai"><div class="msg-ai-label"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>LeadSync AI</div><div class="msg-bubble">Hey! I'm the real LeadSync AI, ask me anything about pricing, setup, or how I'd handle your leads.</div></div>
+            <div class="chat-start" id="chatStart">
+              <button class="chat-start-btn" id="chatStartBtn" type="button">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Start a live demo conversation
+              </button>
+              <p class="chat-start-sub">Talk to our real AI agent, trained on LeadSync</p>
+            </div>
           </div>
-          <div class="chat-input-row">
+          <div class="chat-input-row" id="chatInputRow" style="display:none">
             <input type="text" id="demoInput" placeholder="Ask about pricing, GHL, setup..." maxlength="500" autocomplete="off">
             <button id="demoSend" type="button" aria-label="Send"><svg width="15" height="15" fill="none" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
@@ -1593,10 +1603,14 @@ renderPricing();
 (function(){
   const API_URL='https://leadsync-demo-relay.vercel.app/api/demo-relay';
   const chatBody=document.getElementById('chatBody');
+  const chatStart=document.getElementById('chatStart');
+  const chatStartBtn=document.getElementById('chatStartBtn');
+  const inputRow=document.getElementById('chatInputRow');
   const input=document.getElementById('demoInput');
   const sendBtn=document.getElementById('demoSend');
-  if(!chatBody||!input||!sendBtn)return;
+  if(!chatBody||!chatStart||!chatStartBtn||!inputRow||!input||!sendBtn)return;
 
+  let started=false;
   let sessionId=sessionStorage.getItem('lsDemoSession');
   if(!sessionId){
     sessionId=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():'s'+Date.now()+Math.random().toString(36).slice(2);
@@ -1669,14 +1683,40 @@ renderPricing();
     }
   }
 
+  let starting=false;
+  async function startConversation(){
+    if(started||starting)return;
+    starting=true;
+    chatStart.remove();
+    showTyping();
+    try{
+      const res=await fetch(API_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({sessionId,start:true})
+      });
+      const data=await res.json();
+      hideTyping();
+      addMsg('ai',data.reply||"Hey! Ask me anything about LeadSync.");
+    }catch(err){
+      hideTyping();
+      addMsg('ai',"Sorry, I couldn't connect just now. Try again in a moment, or book a call directly.");
+    }
+    started=true;
+    inputRow.style.display='';
+    input.focus();
+  }
+
+  chatStartBtn.addEventListener('click',startConversation);
   sendBtn.addEventListener('click',send);
   input.addEventListener('keydown',e=>{if(e.key==='Enter')send()});
 
   const watchBtn=document.getElementById('watchItWork');
   if(watchBtn)watchBtn.addEventListener('click',e=>{
     e.preventDefault();
-    input.scrollIntoView({behavior:'smooth',block:'center'});
-    setTimeout(()=>input.focus(),400);
+    chatBody.scrollIntoView({behavior:'smooth',block:'center'});
+    if(started)setTimeout(()=>input.focus(),400);
+    else startConversation();
   });
 })();
 

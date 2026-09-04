@@ -76,18 +76,21 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const { sessionId, message } = req.body || {};
+  const { sessionId, message, start } = req.body || {};
   if (typeof sessionId !== 'string' || !sessionId.trim()) {
     res.status(400).json({ error: 'sessionId is required' });
     return;
   }
-  if (typeof message !== 'string' || !message.trim()) {
-    res.status(400).json({ error: 'message is required' });
-    return;
-  }
-  if (message.length > MAX_MESSAGE_LEN) {
-    res.status(400).json({ error: 'message too long' });
-    return;
+  const isStart = start === true;
+  if (!isStart) {
+    if (typeof message !== 'string' || !message.trim()) {
+      res.status(400).json({ error: 'message is required' });
+      return;
+    }
+    if (message.length > MAX_MESSAGE_LEN) {
+      res.status(400).json({ error: 'message too long' });
+      return;
+    }
   }
 
   const ip = clientIp(req);
@@ -118,7 +121,7 @@ module.exports = async (req, res) => {
         'Content-Type': 'application/json',
         'X-Demo-Relay-Secret': process.env.DEMO_RELAY_SHARED_SECRET,
       },
-      body: JSON.stringify({ sessionId, message }),
+      body: JSON.stringify(isStart ? { sessionId, start: true } : { sessionId, message }),
       signal: controller.signal,
     });
     clearTimeout(timeout);

@@ -66,6 +66,19 @@ async function run() {
   assert.deepStrictEqual(res.body, { reply: 'hi there', qualified: true, booked: false });
   global.fetch = realFetch;
 
+  // start: true -> no message required, forwards {sessionId, start:true}
+  global.fetch = async (url, opts) => {
+    const body = JSON.parse(opts.body);
+    assert.strictEqual(body.start, true);
+    assert.strictEqual(body.message, undefined);
+    return { ok: true, json: async () => ({ reply: 'Hey, welcome!', qualified: false, booked: false }) };
+  };
+  res = mockRes();
+  await handler(mockReq({ body: { sessionId: 'start-session', start: true } }), res);
+  assert.strictEqual(res.statusCode, 200, 'start should 200 without a message');
+  assert.deepStrictEqual(res.body, { reply: 'Hey, welcome!', qualified: false, booked: false });
+  global.fetch = realFetch;
+
   // per-session turn cap: same sessionId hammered past the limit gets capped
   global.fetch = async () => ({ ok: true, json: async () => ({ reply: 'ok', qualified: false, booked: false }) });
   const sid = 'cap-test-session';

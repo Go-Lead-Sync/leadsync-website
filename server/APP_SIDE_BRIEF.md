@@ -26,11 +26,17 @@ HTTP endpoint.
 naming is your call — fit it to how this codebase already organizes routes).
 
 ### Request it will receive
+
+Two shapes, depending on where the visitor is in the conversation:
+
+**Starting a new conversation** (visitor clicked "Start a live demo conversation" — no message from them yet, you should return the agent's opening line):
 ```json
-{
-  "sessionId": "a-client-generated-uuid-stable-per-browser-session",
-  "message": "the visitor's chat message, plain text, max ~2000 chars"
-}
+{ "sessionId": "a-client-generated-uuid-stable-per-browser-session", "start": true }
+```
+
+**A normal turn** (visitor typed something):
+```json
+{ "sessionId": "same-uuid-as-above", "message": "the visitor's chat message, plain text, max ~2000 chars" }
 ```
 
 ### Response it must return
@@ -89,6 +95,11 @@ Use `sessionId` to maintain multi-turn conversation state the same way the
 Playground already does per test session — reuse whatever mechanism already
 backs "continue this test conversation" in the Playground, keyed by
 `sessionId` instead of whatever key the Playground UI currently uses.
+
+On `start: true`, begin a fresh conversation for that `sessionId` and return
+the agent's own opening line as `reply` — the widget shows nothing until
+this call returns, so the very first thing a visitor sees should be the
+real agent talking, not a canned/hardcoded greeting on the marketing side.
 
 ### Rate limiting
 
