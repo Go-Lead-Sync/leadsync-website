@@ -120,6 +120,10 @@ module.exports = async (req, res) => {
       headers: {
         'Content-Type': 'application/json',
         'X-Demo-Relay-Secret': process.env.DEMO_RELAY_SHARED_SECRET,
+        // Server-to-server fetch never sends a browser Origin header on its
+        // own, but the app side checks for one. The shared secret above is
+        // the real auth boundary here; this just satisfies that check.
+        Origin: ALLOWED_ORIGIN,
       },
       body: JSON.stringify(isStart ? { sessionId, start: true } : { sessionId, message }),
       signal: controller.signal,
