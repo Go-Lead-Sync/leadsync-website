@@ -28,6 +28,7 @@ jobs:
           cp index.html CNAME *.png *.webp out/
           cp robots.txt sitemap.xml llms.txt out/
           cp -r terms privacy refund out/
+          cp -r ai-appointment-setter-for-gohighlevel gohighlevel-database-reactivation replace-bdr-sdr-with-ai out/
           touch out/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
