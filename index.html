@@ -554,22 +554,76 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
   "@graph": [
     {
       "@type": "Organization",
+      "@id": "https://www.goleadsyncs.com/#org",
       "name": "LeadSync",
       "url": "https://www.goleadsyncs.com/",
       "logo": "https://www.goleadsyncs.com/favicon.png",
-      "email": "hello@goleadsyncs.com"
+      "email": "hello@goleadsyncs.com",
+      "description": "LeadSync is an AI automation platform built on top of GoHighLevel that instantly responds to, qualifies, and books appointments with inbound leads 24/7.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@goleadsyncs.com",
+        "contactType": "customer support"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.goleadsyncs.com/#website",
+      "url": "https://www.goleadsyncs.com/",
+      "name": "LeadSync",
+      "publisher": {"@id": "https://www.goleadsyncs.com/#org"}
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.goleadsyncs.com/#webpage",
+      "url": "https://www.goleadsyncs.com/",
+      "name": "LeadSync – AI Lead Automation & Auto-Booking for GoHighLevel",
+      "isPartOf": {"@id": "https://www.goleadsyncs.com/#website"},
+      "about": {"@id": "https://www.goleadsyncs.com/#software"},
+      "dateModified": "2026-09-04"
     },
     {
       "@type": "SoftwareApplication",
+      "@id": "https://www.goleadsyncs.com/#software",
       "name": "LeadSync",
       "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "AI Lead Automation",
       "operatingSystem": "Web",
       "description": "LeadSync is an AI automation platform that instantly responds to leads, qualifies them, and auto-books appointments 24/7 inside GoHighLevel.",
       "url": "https://www.goleadsyncs.com/",
-      "offers": [
-        {"@type":"Offer","name":"Starter","price":"89","priceCurrency":"USD","url":"https://www.goleadsyncs.com/#pricing"},
-        {"@type":"Offer","name":"Pro","price":"289","priceCurrency":"USD","url":"https://www.goleadsyncs.com/#pricing"},
-        {"@type":"Offer","name":"Launch Sync Unlimited","price":"449","priceCurrency":"USD","url":"https://www.goleadsyncs.com/#pricing"}
+      "publisher": {"@id": "https://www.goleadsyncs.com/#org"},
+      "featureList": [
+        "AI flow editor for building conversation agents without code",
+        "AI sales agents that read text, listen to voice notes, and analyze images",
+        "Knowledge base training on your business",
+        "Automatic appointment booking into GoHighLevel calendars",
+        "Real-time CRM sync with GoHighLevel",
+        "Smart analytics and Strategy Doctor diagnostics",
+        "Slack notifications when a deal is ready to close"
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "89",
+        "highPrice": "449",
+        "offerCount": "3",
+        "offers": [
+          {"@type":"Offer","name":"Starter","price":"89","priceCurrency":"USD","url":"https://www.goleadsyncs.com/#pricing"},
+          {"@type":"Offer","name":"Pro","price":"289","priceCurrency":"USD","url":"https://www.goleadsyncs.com/#pricing"},
+          {"@type":"Offer","name":"Launch Sync Unlimited","price":"449","priceCurrency":"USD","url":"https://www.goleadsyncs.com/#pricing"}
+        ]
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.goleadsyncs.com/#howto",
+      "name": "How to set up LeadSync on GoHighLevel",
+      "description": "Connect LeadSync to GoHighLevel and go live with an AI lead-response agent in about 30 minutes.",
+      "totalTime": "PT30M",
+      "step": [
+        {"@type":"HowToStep","position":1,"name":"Connect your GHL account","text":"Link LeadSync to GoHighLevel in minutes. Contacts, pipelines, and calendars sync automatically.","url":"https://www.goleadsyncs.com/#how-it-works"},
+        {"@type":"HowToStep","position":2,"name":"Build your AI agent","text":"Use the Flow Editor and AI LS Engine to create a conversation agent trained on your business. No code required.","url":"https://www.goleadsyncs.com/#how-it-works"},
+        {"@type":"HowToStep","position":3,"name":"Watch leads convert","text":"Your AI responds, qualifies, and books 24/7. You only get notified when a deal is ready to close.","url":"https://www.goleadsyncs.com/#how-it-works"}
       ]
     },
     {
@@ -1182,11 +1236,11 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
     <div class="faq-list rev">
       <div class="faq-item">
         <button class="faq-q">How does the 14-day free trial work?<svg class="faq-chev" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">You get full access to all features from day one -no credit card required. If you choose not to continue, just cancel before day 14. Your data is safe and accessible throughout.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">You get full access to all features from day one - no credit card required. If you choose not to continue, just cancel before day 14. Your data is safe and accessible throughout.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Do I need GoHighLevel to use LeadSync?<svg class="faq-chev" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">Yes -LeadSync is built specifically as an AI layer on top of GoHighLevel. It's not a standalone CRM; it supercharges the GHL platform you already use and love.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes - LeadSync is built specifically as an AI layer on top of GoHighLevel. It's not a standalone CRM; it supercharges the GHL platform you already use and love.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">How long does setup take?<svg class="faq-chev" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
@@ -1194,11 +1248,11 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
       </div>
       <div class="faq-item">
         <button class="faq-q">What happens when my trial ends?<svg class="faq-chev" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">You'll be prompted to choose a plan. If you don't subscribe, your AI agents pause and you lose access to the dashboard -but your data stays safe for 30 days so you can pick back up any time.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">You'll be prompted to choose a plan. If you don't subscribe, your AI agents pause and you lose access to the dashboard - but your data stays safe for 30 days so you can pick back up any time.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Can I upgrade or downgrade my plan?<svg class="faq-chev" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">Yes -upgrade or downgrade any time from your billing page. Changes take effect immediately and your billing is adjusted accordingly. No contracts, no lock-ins.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes - upgrade or downgrade any time from your billing page. Changes take effect immediately and your billing is adjusted accordingly. No contracts, no lock-ins.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">What is the Concierge Setup?<svg class="faq-chev" fill="none" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
@@ -1313,6 +1367,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
       <div class="foot-right">
         <p class="foot-made">Made for GHL Agencies &amp; Beyond</p>
         <p class="foot-copy">&copy; 2026 LeadSync. All rights reserved.</p>
+        <p class="foot-copy">Last updated <time datetime="2026-09">September 2026</time></p>
       </div>
     </div>
   </div>
