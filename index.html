@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-314W4BP8ZJ"></script>
+<!-- Google tag (gtag.js) — deferred off the critical path to protect LCP/TBT -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-314W4BP8ZJ');
+  // ponytail: load gtag.js on first interaction or after 3.5s, whichever comes first.
+  // dataLayer queues the calls above; gtag.js drains the queue when it arrives.
+  var _gaOn=false;
+  function _loadGA(){if(_gaOn)return;_gaOn=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-314W4BP8ZJ';document.head.appendChild(s);}
+  ['scroll','mousemove','touchstart','keydown','pointerdown'].forEach(function(e){window.addEventListener(e,_loadGA,{once:true,passive:true});});
+  setTimeout(_loadGA,3500);
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -42,7 +47,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-seri
   --grad:linear-gradient(135deg,#8B5CF6,#EC4899);
   --grad-r:linear-gradient(135deg,#EC4899,#8B5CF6);
   --border:rgba(139,92,246,.18);--bh:rgba(139,92,246,.5);
-  --muted:rgba(255,255,255,.58);--dim:rgba(255,255,255,.3);
+  --muted:rgba(255,255,255,.58);--dim:rgba(255,255,255,.55);
   --radius:18px;--radius-sm:10px;
 }
 
@@ -238,7 +243,7 @@ p{color:var(--muted)}
 .sd-feat{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.14);border-radius:12px;transition:all .2s}
 .sd-feat:hover{border-color:rgba(139,92,246,.35);background:rgba(139,92,246,.1)}
 .sd-feat-ico{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--grad)}
-.sd-feat-text h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.sd-feat-text h3{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
 .sd-feat-text p{font-size:12.5px;margin:0}
 .sd-panel{background:rgba(12,4,24,.95);border:1px solid rgba(139,92,246,.35);border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 40px rgba(139,92,246,.1)}
 .sd-panel-head{padding:14px 18px;background:rgba(139,92,246,.09);border-bottom:1px solid rgba(139,92,246,.15);display:flex;align-items:center;justify-content:space-between}
@@ -588,7 +593,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
 <nav class="nav" id="nav">
   <div class="wrap">
     <div class="nav-in">
-      <a href="#" class="nav-logo"><img src="/favicon.png" alt="LeadSync"><span>LeadSync</span></a>
+      <a href="#" class="nav-logo"><img src="/logo.webp" alt="" width="30" height="30"><span>LeadSync</span></a>
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#compare">Compare</a>
@@ -610,6 +615,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
   <a href="#signup" class="btn btn-pri btn-lg mob-lnk">Start Free Trial</a>
 </div>
 
+<main>
 <!-- HERO -->
 <section class="hero">
   <div class="mesh"><div class="mesh-grad"></div><div class="mesh-grid"></div></div>
@@ -867,15 +873,15 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
         <div class="sd-features">
           <div class="sd-feat">
             <div class="sd-feat-ico"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="white" stroke-width="2"/></svg></div>
-            <div class="sd-feat-text"><h4>Instant AI Health Score</h4><p>Get a real-time performance score for every agent — so you always know what's working.</p></div>
+            <div class="sd-feat-text"><h3>Instant AI Health Score</h3><p>Get a real-time performance score for every agent — so you always know what's working.</p></div>
           </div>
           <div class="sd-feat">
             <div class="sd-feat-ico"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/><path d="m21 21-4.35-4.35M11 8v3M11 14h.01" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
-            <div class="sd-feat-text"><h4>Pinpoints Weak Spots</h4><p>Strategy Doctor finds the exact step in your flow where leads drop off and explains why.</p></div>
+            <div class="sd-feat-text"><h3>Pinpoints Weak Spots</h3><p>Strategy Doctor finds the exact step in your flow where leads drop off and explains why.</p></div>
           </div>
           <div class="sd-feat">
             <div class="sd-feat-ico"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
-            <div class="sd-feat-text"><h4>One-Click Repair</h4><p>Apply AI-generated fixes instantly. No rebuilding flows from scratch, no trial and error.</p></div>
+            <div class="sd-feat-text"><h3>One-Click Repair</h3><p>Apply AI-generated fixes instantly. No rebuilding flows from scratch, no trial and error.</p></div>
           </div>
         </div>
       </div>
@@ -967,7 +973,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
         <thead>
           <tr>
             <th>Feature</th>
-            <th class="th-ls"><div class="th-ls-in"><img src="/favicon.png" alt="">LeadSync</div></th>
+            <th class="th-ls"><div class="th-ls-in"><img src="/logo.webp" alt="" width="20" height="20">LeadSync</div></th>
             <th>Generic Chatbots</th>
             <th>Manual / VA</th>
             <th>Other AI Tools</th>
@@ -1284,13 +1290,14 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
     </div>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-in">
       <div>
-        <a href="#" class="foot-logo"><img src="/favicon.png" alt="LeadSync"><span>LeadSync</span></a>
+        <a href="#" class="foot-logo"><img src="/logo.webp" alt="" width="26" height="26"><span>LeadSync</span></a>
         <p class="foot-tag">AI-Powered Lead Management &amp; Automation</p>
       </div>
       <div class="foot-links">
@@ -1475,14 +1482,5 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 </script>
-<footer style="border-top:1px solid rgba(255,255,255,0.08);padding:24px 16px;text-align:center;background:#050816;">
-  <p style="margin:0 0 10px;font-size:13px;color:rgba(255,255,255,0.35);">&copy; 2026 LeadSync. All rights reserved.</p>
-  <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-    <a href="/terms" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">Terms of Service</a>
-    <a href="/privacy" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">Privacy Policy</a>
-    <a href="/refund" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">Refund Policy</a>
-    <a href="mailto:hello@goleadsyncs.com" style="font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;">hello@goleadsyncs.com</a>
-  </div>
-</footer>
 </body>
 </html>
