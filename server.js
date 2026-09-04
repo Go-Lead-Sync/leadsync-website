@@ -13,7 +13,7 @@ const OWNER_EMAIL = 'kmv736@gmail.com';
 const APP_URL = 'https://app.goleadsyncs.com/register';
 const PORT = process.env.PORT || 3001;
 
-if (!resend) console.warn('⚠️  RESEND_API_KEY not set — emails will be logged only');
+if (!resend) console.warn('⚠️  RESEND_API_KEY not set - emails will be logged only');
 
 function welcomeHtml(firstName) {
   const name = firstName || 'there';
@@ -38,7 +38,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="tag">AI-Powered Lead Management &amp; Automation</div>
   <div class="card">
     <h2>Welcome to LeadSync, ${name}!</h2>
-    <p>Your 14-day free trial is ready. You have full access to everything — no credit card, no commitment.</p>
+    <p>Your 14-day free trial is ready. You have full access to everything, no credit card, no commitment.</p>
     <div class="hl"><p>&#10003; Your free trial is active. No charge for 14 days.</p></div>
     <p>Here's what you can start doing right now:</p>
     <div class="feats">
@@ -54,7 +54,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <p style="margin-top:22px;margin-bottom:0">Talk soon,<br><strong>The LeadSync Team</strong></p>
   </div>
   <div class="footer">
-    <p>LeadSync &mdash; AI-Powered Lead Management &amp; Automation</p>
+    <p>LeadSync - AI-Powered Lead Management &amp; Automation</p>
     <p>&copy; 2026 LeadSync. All rights reserved.</p>
   </div>
 </div></body></html>`;
@@ -106,7 +106,7 @@ app.post('/api/signup', async (req, res) => {
       resend.emails.send({
         from: FROM,
         to: OWNER_EMAIL,
-        subject: `New trial: ${firstName} ${lastName} — ${businessType === 'Other' ? businessTypeOther : businessType}`,
+        subject: `New trial: ${firstName} ${lastName} - ${businessType === 'Other' ? businessTypeOther : businessType}`,
         html: notifyHtml(req.body),
       }).catch(err => console.error('Owner notify failed:', err.message));
     } else {
