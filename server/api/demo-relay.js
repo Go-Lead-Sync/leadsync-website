@@ -11,7 +11,7 @@
 
 const ALLOWED_ORIGIN = 'https://www.goleadsyncs.com';
 const MAX_MESSAGE_LEN = 2000;
-const MAX_REQUESTS_PER_IP_PER_WINDOW = 20;
+const MAX_REQUESTS_PER_IP_PER_WINDOW = 60;
 const WINDOW_MS = 10 * 60 * 1000; // 10 minutes
 const MAX_TURNS_PER_SESSION = 20;
 const UPSTREAM_TIMEOUT_MS = 15000;
@@ -95,7 +95,12 @@ module.exports = async (req, res) => {
 
   const ip = clientIp(req);
   if (rateLimited(ip)) {
-    res.status(429).json({ error: 'too many requests, slow down' });
+    res.status(429).json({
+      error: 'too many requests, slow down',
+      reply: "You're moving fast! Give it a few seconds and try again.",
+      qualified: false,
+      booked: false,
+    });
     return;
   }
   if (sessionCapped(sessionId)) {
@@ -140,8 +145,9 @@ module.exports = async (req, res) => {
     }
 
     const data = await upstream.json();
+    const hasReply = typeof data.reply === 'string' && data.reply.trim().length > 0;
     res.status(200).json({
-      reply: typeof data.reply === 'string' ? data.reply : "Sorry, something went wrong on our end.",
+      reply: hasReply ? data.reply : "Sorry, something went wrong on our end. Try again or book a call directly.",
       qualified: !!data.qualified,
       booked: !!data.booked,
     });

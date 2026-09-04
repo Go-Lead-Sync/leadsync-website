@@ -66,6 +66,15 @@ async function run() {
   assert.deepStrictEqual(res.body, { reply: 'hi there', qualified: true, booked: false });
   global.fetch = realFetch;
 
+  // upstream returns an empty/blank reply -> relay substitutes a clear fallback,
+  // not a silent blank the frontend has to guess about
+  global.fetch = async () => ({ ok: true, json: async () => ({ reply: '   ', qualified: false, booked: false }) });
+  res = mockRes();
+  await handler(mockReq({ body: { sessionId: 'blank-reply-session', message: 'okay?' } }), res);
+  assert.strictEqual(res.statusCode, 200, 'blank upstream reply should still 200');
+  assert.ok(res.body.reply.length > 0, 'blank upstream reply should be replaced with a non-empty fallback');
+  global.fetch = realFetch;
+
   // start: true -> no message required, forwards {sessionId, start:true}
   global.fetch = async (url, opts) => {
     const body = JSON.parse(opts.body);
