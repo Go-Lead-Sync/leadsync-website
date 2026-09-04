@@ -1,0 +1,9 @@
+{
+  "name": "leadsync-demo-relay",
+  "version": "1.0.0",
+  "description": "Thin serverless relay between the marketing site chat widget and the real LeadSync agent on app.goleadsyncs.com. No LLM or calendar code here on purpose.",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  }
+}
