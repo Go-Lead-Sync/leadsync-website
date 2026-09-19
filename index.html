@@ -1587,7 +1587,7 @@ document.querySelectorAll('[data-tilt]').forEach(card=>{
 (()=>{
   const view=document.querySelector('.tc-view');
   if(!view||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  const track=view.querySelector('.tc-track'),STEP=6000;
+  const track=view.querySelector('.tc-track'),STEP=10000;
   let paused=false,busy=false;
   view.addEventListener('mouseenter',()=>paused=true);
   view.addEventListener('mouseleave',()=>paused=false);
