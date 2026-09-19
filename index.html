@@ -404,6 +404,22 @@ p{color:var(--muted)}
 .wc .pain{font-size:12px;color:rgba(236,72,153,.8);font-weight:600;font-style:italic;margin-bottom:8px}
 .wc p{font-size:13px;line-height:1.65}
 
+/* ── TESTIMONIALS (endless glass carousel) ───── */
+.tc-view{position:relative;overflow:hidden;padding:28px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.tc-view::before,.tc-view::after{content:'';position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
+.tc-view::before{width:440px;height:440px;left:14%;top:-70px;background:rgba(139,92,246,.6)}
+.tc-view::after{width:400px;height:400px;right:12%;bottom:-70px;background:rgba(236,72,153,.45)}
+.tc-track{--n:3;display:flex;position:relative;z-index:1}
+.tc{flex:0 0 calc(100%/var(--n) - 20px);margin:0 10px;position:relative;display:flex;flex-direction:column;padding:32px 30px 28px;border-radius:var(--radius);background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 24px 60px rgba(6,0,18,.5);transition:transform .3s,box-shadow .3s}
+.tc::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;background:linear-gradient(140deg,rgba(255,255,255,.45),rgba(139,92,246,.35) 45%,rgba(236,72,153,.4));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.tc:hover{transform:translateY(-5px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 30px 70px rgba(139,92,246,.28)}
+.tc blockquote{flex:1;margin-bottom:24px;font-size:15px;line-height:1.75;color:rgba(255,255,255,.92)}
+.tc blockquote::before{content:'\201C';display:block;height:2.3rem;font-size:4.4rem;line-height:.85;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tc figcaption{display:flex;flex-direction:column;gap:2px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
+.tc figcaption strong{color:#fff;font-size:15px}
+.tc figcaption span{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--p)}
+@media(prefers-reduced-motion:reduce){.tc-view{overflow-x:auto}}
+
 /* ── PRICING ─────────────────────────────────── */
 .ptog{display:flex;justify-content:center;margin-bottom:44px}
 .tog-wrap{display:inline-flex;background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:40px;padding:5px;gap:4px}
@@ -518,6 +534,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
   .steps-row::before{display:none}
   .steps-row{grid-template-columns:1fr;max-width:360px;margin:40px auto 0}
   .prob-grid,.who-grid{grid-template-columns:1fr 1fr}
+  .tc-track{--n:2}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .stat{border-right:none;border-bottom:1px solid var(--border)}
   .stat:nth-child(2n){border-bottom:1px solid var(--border)}
@@ -529,6 +546,7 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
   .bento{grid-template-columns:1fr}
   .bc-flow,.bc-analytics{grid-column:span 1}
   .prob-grid,.who-grid{grid-template-columns:1fr}
+  .tc-track{--n:1}
   .frow{grid-template-columns:1fr}
   .form-inner{padding:32px 22px}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
@@ -1153,6 +1171,41 @@ footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="sec" id="testimonials" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-tag rev">
+      <span class="chip">Testimonials</span>
+      <h2 style="color:#fff">Real Clients.<br><span class="grad-text">Real Results.</span></h2>
+    </div>
+    <div class="tc-view rev">
+      <!-- To add a testimonial, paste another <figure class="tc"> below. The carousel loops any number of 4+. -->
+      <div class="tc-track">
+        <figure class="tc">
+          <blockquote>Speed to lead was a huge issue for us. We simply couldn’t get to every lead quickly enough, and we were losing potential clients because of it. Now we can respond immediately and give our clients a much better experience. It’s also allowed us to offer a much more complete service.</blockquote>
+          <figcaption><strong>Callum R.</strong><span>Marketing Agency</span></figcaption>
+        </figure>
+        <figure class="tc">
+          <blockquote>I work with clients across the US, Dubai, the UK and Europe, so managing leads across all those different time zones was becoming impossible. LeadSync handles that for me in the background and keeps booking clients while I focus on training. It’s brought in a ton more booked appointments.</blockquote>
+          <figcaption><strong>Andy P.</strong><span>Fitness Coach</span></figcaption>
+        </figure>
+        <figure class="tc">
+          <blockquote>I was literally out on a date with my girlfriend when we started seeing meetings get booked. I could show her, ‘Look, that’s another one.’ LeadSync was working in the background while I was actually enjoying my evening. Being able to switch off without missing opportunities is huge.</blockquote>
+          <figcaption><strong>Jared N.</strong><span>Life Coach</span></figcaption>
+        </figure>
+        <figure class="tc">
+          <blockquote>LeadSync has allowed us to become a much stronger performance provider for our clients. Instead of getting caught up in the day-to-day lead follow-up, I can focus on the bigger picture while everything runs in the background. We’re able to deliver more without constantly adding more work to the team.</blockquote>
+          <figcaption><strong>James H.</strong><span>Marketing Agency</span></figcaption>
+        </figure>
+        <figure class="tc">
+          <blockquote>We’ve replaced 90% of our SDR workload with LeadSync through the Concierge program. The amount we’re saving in staffing costs has been huge, while the system continues handling the work in the background. It’s completely changed the economics of how we manage our sales process.</blockquote>
+          <figcaption><strong>Grace J.</strong><span>Marketing Agency</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- INTEGRATIONS -->
 <section class="sec" style="padding-top:0">
   <div class="wrap">
@@ -1525,6 +1578,34 @@ document.querySelectorAll('[data-tilt]').forEach(card=>{
   });
   card.addEventListener('mouseleave',()=>{card.style.transform='';});
 });
+
+// ── TESTIMONIAL CAROUSEL ──────────────────────
+// ponytail: one card slides out per STEP, first card is moved to the end after the slide, so any 4+ cards loop with no clones.
+(()=>{
+  const view=document.querySelector('.tc-view');
+  if(!view||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  const track=view.querySelector('.tc-track'),STEP=6000;
+  let paused=false,busy=false;
+  view.addEventListener('mouseenter',()=>paused=true);
+  view.addEventListener('mouseleave',()=>paused=false);
+  view.addEventListener('focusin',()=>paused=true);
+  view.addEventListener('focusout',()=>paused=false);
+  track.addEventListener('transitionend',e=>{
+    if(e.target!==track||e.propertyName!=='transform')return;
+    track.style.transition='none';
+    track.appendChild(track.firstElementChild);
+    track.style.transform='';
+    void track.offsetWidth;
+    busy=false;
+  });
+  setInterval(()=>{
+    if(paused||busy||document.hidden||track.children.length<4)return;
+    busy=true;
+    const d=track.children[1].offsetLeft-track.children[0].offsetLeft;
+    track.style.transition='transform .9s cubic-bezier(.65,0,.35,1)';
+    track.style.transform=`translateX(${-d}px)`;
+  },STEP);
+})();
 
 // ── FAQ ACCORDION ─────────────────────────────
 document.querySelectorAll('.faq-q').forEach(btn=>{
